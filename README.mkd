@@ -1,1 +1,3 @@
 # Go/Migemo module
+
+Experiment version.
