@@ -1,0 +1,373 @@
+# Table to convert ROMAJI to HIRAGANA in Japanese.
+#
+# Format: {INPUT}\t{EMIT}[\t{REMAIN}]
+
+a	Ç†
+i	Ç¢
+u	Ç§
+e	Ç¶
+o	Ç®
+
+ka	Ç©
+ki	Ç´
+ku	Ç≠
+ke	ÇØ
+ko	Ç±
+
+sa	Ç≥
+si	Çµ
+su	Ç∑
+se	Çπ
+so	Çª
+
+ta	ÇΩ
+ti	Çø
+tu	Ç¬
+te	Çƒ
+to	Ç∆
+
+na	Ç»
+ni	Ç…
+nu	Ç 
+ne	ÇÀ
+no	ÇÃ
+
+ha	ÇÕ
+hi	Ç–
+hu	Ç”
+he	Ç÷
+ho	ÇŸ
+
+ma	Ç‹
+mi	Ç›
+mu	Çﬁ
+me	Çﬂ
+mo	Ç‡
+
+ya	Ç‚
+yi	Ç¢
+yu	Ç‰
+ye	Ç¢Ç•
+yo	ÇÊ
+
+ra	ÇÁ
+ri	ÇË
+ru	ÇÈ
+re	ÇÍ
+ro	ÇÎ
+
+wa	ÇÌ
+wi	ÇÓ
+wu	Ç§
+we	ÇÔ
+wo	Ç
+
+ga	Ç™
+gi	Ç¨
+gu	ÇÆ
+ge	Ç∞
+go	Ç≤
+
+za	Ç¥
+zi	Ç∂
+zu	Ç∏
+ze	Ç∫
+zo	Çº
+
+da	Çæ
+di	Ç¿
+du	Ç√
+de	Ç≈
+do	Ç«
+
+ba	ÇŒ
+bi	Ç—
+bu	Ç‘
+be	Ç◊
+bo	Ç⁄
+
+pa	Çœ
+pi	Ç“
+pu	Ç’
+pe	Çÿ
+po	Ç€
+
+la	Çü
+li	Ç°
+lu	Ç£
+le	Ç•
+lo	Çß
+
+lya	Ç·
+lyi	Ç°
+lyu	Ç„
+lye	Ç•
+lyo	ÇÂ
+
+xa	Çü
+xi	Ç°
+xu	Ç£
+xe	Ç•
+xo	Çß
+
+xya	Ç·
+xyi	Ç°
+xyu	Ç„
+xye	Ç•
+xyo	ÇÂ
+
+kya	Ç´Ç·
+kyi	Ç´Ç°
+kyu	Ç´Ç„
+kye	Ç´Ç•
+kyo	Ç´ÇÂ
+
+gwa	ÇÆÇü
+gwi	ÇÆÇ°
+gwu	ÇÆÇ£
+gwe	ÇÆÇ•
+gwo	ÇÆÇß
+
+gya	Ç¨Ç·
+gyi	Ç¨Ç°
+gyu	Ç¨Ç„
+gye	Ç¨Ç•
+gyo	Ç¨ÇÂ
+
+sha	ÇµÇ·
+shi	Çµ
+shu	ÇµÇ„
+she	ÇµÇ•
+sho	ÇµÇÂ
+
+swa	Ç∑Çü
+swi	Ç∑Ç°
+swu	Ç∑Ç£
+swe	Ç∑Ç•
+swo	Ç∑Çß
+
+sya	ÇµÇ·
+syi	ÇµÇ°
+syu	ÇµÇ„
+sye	ÇµÇ•
+syo	ÇµÇÂ
+
+tha	ÇƒÇ·
+thi	ÇƒÇ°
+thu	ÇƒÇ„
+the	ÇƒÇ•
+tho	ÇƒÇÂ
+
+tsa	Ç¬Çü
+tsi	Ç¬Ç°
+tsu	Ç¬
+tse	Ç¬Ç•
+tso	Ç¬Çß
+
+twa	Ç∆Çü
+twi	Ç∆Ç°
+twu	Ç∆Ç£
+twe	Ç∆Ç•
+two	Ç∆Çß
+
+tya	ÇøÇ·
+tyi	ÇøÇ°
+tyu	ÇøÇ„
+tye	ÇøÇ•
+tyo	ÇøÇÂ
+
+dha	Ç≈Ç·
+dhi	Ç≈Ç°
+dhu	Ç≈Ç„
+dhe	Ç≈Ç•
+dho	Ç≈ÇÂ
+
+nya	Ç…Ç·
+nyi	Ç…Ç°
+nyu	Ç…Ç„
+nye	Ç…Ç•
+nyo	Ç…ÇÂ
+
+hya	Ç–Ç·
+hyi	Ç–Ç°
+hyu	Ç–Ç„
+hye	Ç–Ç•
+hyo	Ç–ÇÂ
+
+bya	Ç—Ç·
+byi	Ç—Ç°
+byu	Ç—Ç„
+bye	Ç—Ç•
+byo	Ç—ÇÂ
+
+pya	Ç“Ç·
+pyi	Ç“Ç°
+pyu	Ç“Ç„
+pye	Ç“Ç•
+pyo	Ç“ÇÂ
+
+mya	Ç›Ç·
+myi	Ç›Ç°
+myu	Ç›Ç„
+mye	Ç›Ç•
+myo	Ç›ÇÂ
+
+rya	ÇËÇ·
+ryi	ÇËÇ°
+ryu	ÇËÇ„
+rye	ÇËÇ•
+ryo	ÇËÇÂ
+
+ca	Ç©
+ci	Çµ
+cu	Ç≠
+ce	Çπ
+co	Ç±
+
+cha	ÇøÇ·
+chi	Çø
+chu	ÇøÇ„
+che	ÇøÇ•
+cho	ÇøÇÂ
+
+fa	Ç”Çü
+fi	Ç”Ç°
+fu	Ç”
+fe	Ç”Ç•
+fo	Ç”Çß
+
+fwa	Ç”Çü
+fwi	Ç”Ç°
+fwu	Ç”Ç£
+fwe	Ç”Ç•
+fwo	Ç”Çß
+
+fya	Ç”Ç·
+fyi	Ç”Ç°
+fyu	Ç”Ç„
+fye	Ç”Ç•
+fyo	Ç”ÇÂ
+
+ja	Ç∂Ç·
+ji	Ç∂
+ju	Ç∂Ç„
+je	Ç∂Ç•
+jo	Ç∂ÇÂ
+
+jya	Ç∂Ç·
+jyi	Ç∂Ç°
+jyu	Ç∂Ç„
+jye	Ç∂Ç•
+jyo	Ç∂ÇÂ
+
+qa	Ç≠Çü
+qi	Ç≠Ç°
+qu	Ç≠
+qe	Ç≠Ç•
+qo	Ç≠Çß
+
+qwa	Ç≠Çü
+qwi	Ç≠Ç°
+qwu	Ç≠Ç£
+qwe	Ç≠Ç•
+qwo	Ç≠Çß
+
+qya	Ç≠Ç·
+qyi	Ç≠Ç°
+qyu	Ç≠Ç„
+qye	Ç≠Ç•
+qyo	Ç≠ÇÂ
+
+va	ÉîÇü
+vi	ÉîÇ°
+vu	Éî
+ve	ÉîÇ•
+vo	ÉîÇß
+
+vya	ÉîÇ·
+vyi	ÉîÇ°
+vyu	ÉîÇ„
+vye	ÉîÇ•
+vyo	ÉîÇÂ
+
+nn	ÇÒ
+n'	ÇÒ
+xn	ÇÒ
+ltu	Ç¡
+xtu	Ç¡
+lwa	ÇÏ
+xwa	ÇÏ
+lka	Éï
+xka	Éï
+lke	Éñ
+xke	Éñ
+kwa	Ç≠Çü
+
+-	Å[
+~	Å`
+
+mba	ÇÒÇŒ
+mbi	ÇÒÇ—
+mbu	ÇÒÇ‘
+mbe	ÇÒÇ◊
+mbo	ÇÒÇ⁄
+
+mpa	ÇÒÇœ
+mpi	ÇÒÇ“
+mpu	ÇÒÇ’
+mpe	ÇÒÇÿ
+mpo	ÇÒÇ€
+
+mma	ÇÒÇ‹
+mmi	ÇÒÇ›
+mmu	ÇÒÇﬁ
+mme	ÇÒÇﬂ
+mmo	ÇÒÇ‡
+
+tcha	Ç¡ÇøÇ·
+tchi	Ç¡Çø
+tchu	Ç¡ÇøÇ„
+tche	Ç¡ÇøÇ•
+tcho	Ç¡ÇøÇÂ
+
+bb	Ç¡	b
+cc	Ç¡	c
+dd	Ç¡	d
+ff	Ç¡	f
+gg	Ç¡	g
+hh	Ç¡	h
+jj	Ç¡	j
+kk	Ç¡	k
+ll	Ç¡	l
+mm	Ç¡	m
+pp	Ç¡	p
+qq	Ç¡	q
+rr	Ç¡	r
+ss	Ç¡	s
+tt	Ç¡	t
+vv	Ç¡	v
+ww	Ç¡	w
+xx	Ç¡	x
+yy	Ç¡	y
+zz	Ç¡	z
+
+nb	ÇÒ	b
+nc	ÇÒ	c
+nd	ÇÒ	d
+nf	ÇÒ	f
+ng	ÇÒ	g
+nh	ÇÒ	h
+nj	ÇÒ	j
+nk	ÇÒ	k
+nl	ÇÒ	l
+nm	ÇÒ	m
+np	ÇÒ	p
+nq	ÇÒ	q
+nr	ÇÒ	r
+ns	ÇÒ	s
+nt	ÇÒ	t
+nv	ÇÒ	v
+nw	ÇÒ	w
+nx	ÇÒ	x
+ny	ÇÒ	y
+nz	ÇÒ	z
