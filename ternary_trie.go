@@ -32,7 +32,7 @@ func (n *TernaryTrieNode) Hi() *TernaryTrieNode {
 func (n *TernaryTrieNode) EachWidth(proc func(*TernaryTrieNode)) {
     queue := list.New()
     queue.PushBack(n)
-    for ; queue.Len() != 0; {
+    for queue.Len() != 0 {
         front := queue.Front()
         target := (front.Value).(*TernaryTrieNode)
         queue.Remove(front)
