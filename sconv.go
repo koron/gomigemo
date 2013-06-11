@@ -2,12 +2,14 @@ package migemo
 
 import (
     "bytes"
+    "fmt"
     "io"
 )
 
 // SConv - String Converter
 
 type SConv struct {
+    debug bool
     trie *TernaryTrie
 }
 
@@ -17,13 +19,22 @@ type SConvEntry struct {
 }
 
 func NewSConv() (c *SConv) {
-    c = &SConv{ NewTernaryTrie() }
+    c = &SConv{ false, NewTernaryTrie() }
     return
 }
 
-func (c *SConv) AddEntry(k string, e *SConvEntry) {
-    c.trie.Add(k, e)
-    return
+func (c *SConv) debugf(format string, a ...interface{}) {
+    // FIXME: support vargs.
+    if c.debug {
+        fmt.Printf(format, a)
+    }
+}
+
+func (c *SConv) debugln(a ...interface{}) {
+    // FIXME: support vargs.
+    if c.debug {
+        fmt.Println(a)
+    }
 }
 
 func (c *SConv) Add(k string, output string, remain string) {
@@ -47,13 +58,14 @@ func (c *SConv) Convert(s string) (d string, err error) {
 
         node = node.Find(ch)
         if node == nil {
-            ch, _, err := pending.ReadRune()
+            pending.WriteRune(ch)
+            ch2, _, err := pending.ReadRune()
             if err != nil {
                 if err != io.EOF {
                     break
                 }
             } else {
-                out.WriteRune(ch)
+                out.WriteRune(ch2)
                 reader.PushFront(pending.String())
                 pending.Reset()
             }
@@ -67,13 +79,15 @@ func (c *SConv) Convert(s string) (d string, err error) {
                 reader.PushFront(e.Remain)
             }
             pending.Reset()
+            node = c.trie.Root()
         } else {
             pending.WriteRune(ch)
+            node = node.Eq()
         }
-        out.WriteRune(ch)
     }
     if pending.Len() > 0 {
-        out.Write(pending.Bytes())
+        s := pending.String()
+        out.WriteString(s)
     }
     d = out.String()
     return
