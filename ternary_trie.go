@@ -120,6 +120,25 @@ func (n *TernaryTrieNode) Find(ch rune) (o *TernaryTrieNode) {
 	return
 }
 
+func digRune(p **TernaryTrieNode, ch rune) (nextp **TernaryTrieNode, node *TernaryTrieNode) {
+	for {
+		if *p == nil {
+			*p = &TernaryTrieNode{ch, nil, nil, nil, nil}
+		}
+
+		diff := ch - (*p).ch
+		if diff == 0 {
+			nextp = &(*p).eq
+			node = *p
+			return
+		} else if diff < 0 {
+			p = &(*p).lo
+		} else {
+			p = &(*p).hi
+		}
+	}
+}
+
 ////////////////////////////////////////////////////////////////////////////
 // Ternary Trie
 
@@ -138,22 +157,7 @@ func (t *TernaryTrie) Root() *TernaryTrieNode {
 func (t *TernaryTrie) Dig(key string) (last *TernaryTrieNode) {
 	p := &t.root
 	for _, ch := range key {
-		for {
-			if *p == nil {
-				*p = &TernaryTrieNode{ch, nil, nil, nil, nil}
-			}
-
-			diff := ch - (*p).ch
-			if diff == 0 {
-				last = *p
-				p = &(*p).eq
-				break
-			} else if diff < 0 {
-				p = &(*p).lo
-			} else {
-				p = &(*p).hi
-			}
-		}
+		p, last = digRune(p, ch)
 	}
 	return last
 }
