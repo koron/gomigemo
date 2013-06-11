@@ -115,3 +115,10 @@ func TestTernaryTreeBalance(t *testing.T) {
     trie.Balance()
     checkBalance1(t, trie.Root())
 }
+
+func TestTernaryNodeFind(t *testing.T) {
+    var n *TernaryTrieNode = nil;
+    if n.Find('a') != nil {
+        t.Errorf("found 'a' in empty node")
+    }
+}

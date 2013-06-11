@@ -97,27 +97,27 @@ func (oldtop *TernaryTrieNode) balance() (newtop *TernaryTrieNode) {
     return balance(array, 0, len(array))
 }
 
-func each(node *TernaryTrieNode, proc func(*TernaryTrieNode)) {
+func (node *TernaryTrieNode) Each(proc func(*TernaryTrieNode)) {
     if node != nil {
-        each(node.lo, proc)
+        node.lo.Each(proc)
         proc(node)
-        each(node.eq, proc)
-        each(node.hi, proc)
+        node.eq.Each(proc)
+        node.hi.Each(proc)
     }
 }
 
-func (node *TernaryTrieNode) Each(proc func(*TernaryTrieNode)) {
-    //each(node, proc)
-    if node.lo != nil {
-        node.lo.Each(proc)
+func (n *TernaryTrieNode) Find(ch rune) (o *TernaryTrieNode) {
+    for n != nil {
+        if ch < n.ch {
+            n = n.lo
+        } else if ch > n.ch {
+            n = n.hi
+        } else {
+            o = n
+            break
+        }
     }
-    proc(node)
-    if node.eq != nil {
-        node.eq.Each(proc)
-    }
-    if node.hi != nil {
-        node.hi.Each(proc)
-    }
+    return
 }
 
 ////////////////////////////////////////////////////////////////////////////
