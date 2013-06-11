@@ -48,11 +48,9 @@ func (n *TernaryTrieNode) EachWidth(proc func(*TernaryTrieNode)) {
 }
 
 func (n *TernaryTrieNode) EachWidthInOrder(proc func(*TernaryTrieNode)) {
-	if n.lo != nil {
+	if n != nil {
 		n.lo.EachWidthInOrder(proc)
-	}
-	proc(n)
-	if n.hi != nil {
+		proc(n)
 		n.hi.EachWidthInOrder(proc)
 	}
 }
