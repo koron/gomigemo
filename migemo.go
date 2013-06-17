@@ -18,13 +18,25 @@ func (g *Migemo) load() (err error) {
 	return
 }
 
-func (g *Migemo) Matcher(s string) (m *Matcher) {
+func (g *Migemo) source(s string) (t chan string) {
 	err := g.load()
 	if err != nil {
 		return
 	}
+	t = make(chan string)
+	// TODO: start go routine.
+	return
+}
+
+func (g *Migemo) Matcher(s string) (m *Matcher) {
+	t := g.source(s)
+	if t == nil {
+		return
+	}
 	m = NewMatcher()
-	// TODO:
+	for i := range t {
+		m.Add(i)
+	}
 	return
 }
 
