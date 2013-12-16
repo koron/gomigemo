@@ -3,6 +3,7 @@ package migemo
 import (
 	"bytes"
 	"fmt"
+	"github.com/koron/gomigemo/trie"
 	"io"
 )
 
@@ -10,7 +11,7 @@ import (
 
 type SConv struct {
 	debug bool
-	trie  *TernaryTrie
+	trie  *trie.Trie
 }
 
 type SConvEntry struct {
@@ -19,7 +20,7 @@ type SConvEntry struct {
 }
 
 func NewSConv() (c *SConv) {
-	c = &SConv{false, NewTernaryTrie()}
+	c = &SConv{false, trie.NewTrie()}
 	return
 }
 

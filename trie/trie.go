@@ -25,6 +25,19 @@ func (t *Trie) Dig(key string) (last *Node) {
 	return last
 }
 
+// Dig2 return a last to store provided keys.  f is callbacked when digged and
+// forwarded a node, when it returns false, digging is terminated.
+func (t *Trie) Dig2(key string, f func(*Node) bool) (last *Node) {
+	p := &t.root
+	for _, ch := range key {
+		p, last = digRune(p, ch)
+		if !f(last) {
+			return nil
+		}
+	}
+	return last
+}
+
 // Add key and value.
 func (t *Trie) Add(key string, value interface{}) {
 	t.Dig(key).Value = value

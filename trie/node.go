@@ -149,3 +149,8 @@ func digRune(p **Node, ch rune) (nextp **Node, node *Node) {
 		}
 	}
 }
+
+// ResetEq reset eq property of node.
+func (n *Node) ResetEq() {
+	n.eq = nil
+}

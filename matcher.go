@@ -3,11 +3,12 @@ package migemo
 import (
 	"bytes"
 	"container/list"
+	"github.com/koron/gomigemo/trie"
 	"regexp"
 )
 
 type Matcher struct {
-	trie       *TernaryTrie
+	trie       *trie.Trie
 	opOr       string
 	opGroupIn  string
 	opGroupOut string
@@ -21,22 +22,21 @@ type Match struct {
 }
 
 func NewMatcher() (m *Matcher) {
-	m = &Matcher{NewTernaryTrie(), "|", "(?:", ")", "[", "]", "\\s*"}
+	m = &Matcher{trie.NewTrie(), "|", "(?:", ")", "[", "]", "\\s*"}
 	return
 }
 
 func (m *Matcher) Add(s string) {
-	p := &m.trie.root
-	var n *TernaryTrieNode
-	for _, ch := range s {
-		p, n = digRune(p, ch)
-		if n.Value != nil {
-			return
+	n := m.trie.Dig2(s, func(m *trie.Node) (r bool) {
+		if m.Value == nil {
+			r = true
 		}
+		return
+	})
+	if n != nil {
+		n.Value = true
+		n.ResetEq()
 	}
-	n.Value = true
-	n.eq = nil
-	return
 }
 
 func (m *Matcher) Match(s string) (r *Match) {
@@ -44,21 +44,21 @@ func (m *Matcher) Match(s string) (r *Match) {
 	return
 }
 
-func split(n *TernaryTrieNode) (s string, l *list.List) {
+func split(n *trie.Node) (s string, l *list.List) {
 	l = list.New()
 	buf := new(bytes.Buffer)
-	n.EachWidthInOrder(func(node *TernaryTrieNode) {
-		if node.eq != nil {
+	n.EachWidthInOrder(func(node *trie.Node) {
+		if node.Eq() != nil {
 			l.PushBack(node)
 		} else {
-			buf.WriteRune(node.ch)
+			buf.WriteRune(node.Ch())
 		}
 	})
 	s = buf.String()
 	return
 }
 
-func (m *Matcher) outputPattern(buf *bytes.Buffer, n *TernaryTrieNode) {
+func (m *Matcher) outputPattern(buf *bytes.Buffer, n *trie.Node) {
 	s, l := split(n)
 	g := false
 	if len(s)+l.Len() > 1 && l.Len() > 0 {
@@ -88,10 +88,10 @@ func (m *Matcher) outputPattern(buf *bytes.Buffer, n *TernaryTrieNode) {
 				buf.WriteString(m.opOr)
 			}
 			first = false
-			n2 := e.Value.(*TernaryTrieNode)
-			buf.WriteRune(n2.ch)
+			n2 := e.Value.(*trie.Node)
+			buf.WriteRune(n2.Ch())
 			buf.WriteString(m.opWSpaces)
-			m.outputPattern(buf, n2.eq)
+			m.outputPattern(buf, n2.Eq())
 		}
 	}
 	if g {
