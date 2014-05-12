@@ -14,7 +14,7 @@ func New(dictpath string) (g *Migemo) {
 }
 
 func (g *Migemo) load() (err error) {
-	// TODO:
+	// TODO: load dictionaries from dictpath.
 	return
 }
 

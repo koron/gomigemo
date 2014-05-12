@@ -40,7 +40,7 @@ func (m *Matcher) Add(s string) {
 }
 
 func (m *Matcher) Match(s string) (r *Match) {
-	// TODO:
+	// TODO: make direct match.
 	return
 }
 
