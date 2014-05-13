@@ -6,14 +6,16 @@ import (
 
 type Migemo interface {
 	Matcher(string) (Matcher, error)
-	Pattern(string) (string, error)
-	Regexp(string) (*regexp.Regexp, error)
 }
 
 type Matcher interface {
 	Match(string) (chan Match, error)
 	Pattern() (string, error)
-	Regexp() (*regexp.Regexp, error)
+	SetOptions(MatcherOptions)
+	GetOptions() MatcherOptions
+}
+
+type MatcherOptions struct {
 }
 
 type Match struct {
@@ -23,4 +25,20 @@ type Match struct {
 func Load(path string) (Migemo, error) {
 	// TODO:
 	return nil, nil
+}
+
+func Compile(g Migemo, s string) (*regexp.Regexp, error) {
+	m, err := g.Matcher(s)
+	if err != nil {
+		return nil, err
+	}
+	return NewRegexp(m)
+}
+
+func NewRegexp(m Matcher) (*regexp.Regexp, error) {
+	p, err := m.Pattern()
+	if err != nil {
+		return nil, err
+	}
+	return regexp.Compile(p)
 }
