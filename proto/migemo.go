@@ -4,7 +4,7 @@ import (
 	"regexp"
 )
 
-type Migemo interface {
+type Dict interface {
 	Matcher(string) (Matcher, error)
 }
 
@@ -16,19 +16,28 @@ type Matcher interface {
 }
 
 type MatcherOptions struct {
+	OpOr string
+	OpGroupIn, OpGroupOut string
+	OpClassIn, OpClassOut string
+	OpWSpaces string
+	MetaChars string
 }
 
 type Match struct {
 	Start, End int
 }
 
-func Load(path string) (Migemo, error) {
-	// TODO:
-	return nil, nil
+func Load(path string) (Dict, error) {
+	d := &dict{path}
+	err := d.load()
+	if err != nil {
+		return nil, err
+	}
+	return d, nil
 }
 
-func Compile(g Migemo, s string) (*regexp.Regexp, error) {
-	m, err := g.Matcher(s)
+func Compile(d Dict, s string) (*regexp.Regexp, error) {
+	m, err := d.Matcher(s)
 	if err != nil {
 		return nil, err
 	}

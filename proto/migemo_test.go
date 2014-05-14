@@ -4,6 +4,6 @@ import (
 	"testing"
 )
 
-func TestMigemoLoad(t *testing.T) {
+func TestLoad(t *testing.T) {
 	_, _ = Load("../dict")
 }
