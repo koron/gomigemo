@@ -1,36 +1,19 @@
 package inflator
 
-func Join(first, second Inflatable) Inflatable {
-	return &joiner{first, second}
-}
-
 type joiner struct {
 	first, second Inflatable
 }
 
-type joining struct {
-	first      Inflator
-	infratable Inflatable
-	second     Inflator
+func Join(first, second Inflatable) Inflatable {
+	return &joiner{first, second}
 }
 
-func (j *joiner) Inflate(s string) Inflator {
-	return &joining{j.first.Inflate(s), j.second, nil}
-}
-
-func (j *joining) NextString() (string, bool) {
-	for {
-		if j.second == nil {
-			if s, has := j.first.NextString(); !has {
-				return "", false
-			} else {
-				j.second = j.infratable.Inflate(s)
+func (j *joiner) Inflate(s string) <-chan string {
+	return Start(func(c chan<- string) {
+		for t := range j.first.Inflate(s) {
+			for u := range j.second.Inflate(t) {
+				c <- u
 			}
 		}
-
-		if s, has := j.second.NextString(); has {
-			return s, has
-		}
-		j.second = nil
-	}
+	})
 }
