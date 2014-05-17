@@ -70,3 +70,60 @@ func (e *echo) Inflate(s string) <-chan string {
 		c <- s
 	})
 }
+
+////////////////////////////////////////////////////////////////////////////
+// Filter
+
+type filter struct {
+	check func(string) bool
+}
+
+func Filter(check func(string) bool) Inflatable {
+	return &filter{check}
+}
+
+func (f *filter) Inflate(s string) <-chan string {
+	return Start(func(c chan<- string) {
+		if f.check(s) {
+			c <- s
+		}
+	})
+}
+
+////////////////////////////////////////////////////////////////////////////
+// Prefix
+
+type prefixer struct {
+	prefixes []string
+}
+
+func Prefix(prefixes ...string) Inflatable {
+	return &prefixer{prefixes}
+}
+
+func (p *prefixer) Inflate(s string) <-chan string {
+	return Start(func(c chan<- string) {
+		for _, t := range p.prefixes {
+			c <- t + s
+		}
+	})
+}
+
+////////////////////////////////////////////////////////////////////////////
+// Suffix
+
+type suffixer struct {
+	suffixes []string
+}
+
+func Suffix(suffixes ...string) Inflatable {
+	return &suffixer{suffixes}
+}
+
+func (p *suffixer) Inflate(s string) <-chan string {
+	return Start(func(c chan<- string) {
+		for _, t := range p.suffixes {
+			c <- s + t
+		}
+	})
+}
