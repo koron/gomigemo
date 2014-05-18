@@ -38,12 +38,11 @@ func dig(pnode **TrieNode, ch rune) *TrieNode {
 			*pnode = &TrieNode{ch, nil, nil, nil, nil}
 		}
 		diff := ch - (*pnode).ch
-		switch {
-		case diff == 0:
+		if diff == 0 {
 			return *pnode
-		case diff < 0:
+		} else if diff < 0 {
 			pnode = &(*pnode).lo
-		default:
+		} else {
 			pnode = &(*pnode).hi
 		}
 	}
@@ -173,15 +172,14 @@ func (n *TrieNode) balance() *TrieNode {
 
 func balance(nodes []*TrieNode, s int, e int) *TrieNode {
 	count := e - s
-	switch {
-	case count <= 0:
+	if count <= 0 {
 		return nil
-	case count == 1:
+	} else if count == 1 {
 		return nodes[s]
-	case count == 2:
+	} else if count == 2 {
 		nodes[s].hi = nodes[s+1]
 		return nodes[s]
-	default:
+	} else {
 		mid := (s + e) / 2
 		nodes[mid].lo = balance(nodes, s, mid)
 		nodes[mid].hi = balance(nodes, mid+1, e)

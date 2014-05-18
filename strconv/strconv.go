@@ -35,23 +35,21 @@ func (c *Converter) Convert(s string) (string, error) {
 			err = nil
 			break
 		} else if err != nil {
-			return "", err
+			return "", nil
 		}
 
 		n = n.Find(ch)
-		switch {
-		case n == nil:
+		if n == nil {
 			pending.WriteRune(ch)
 			ch2, _, err := pending.ReadRune()
-			switch {
-			case err == nil:
+			if err == nil {
 				out.WriteRune(ch2)
 				r.PushFront(pending.String())
 				pending.Reset()
-			case err != io.EOF:
+			} else if err != io.EOF {
 				return "", err
 			}
-		case n.Value != nil:
+		} else if n.Value != nil {
 			e := n.Value.(*entry)
 			if len(e.output) > 0 {
 				out.WriteString(e.output)
@@ -61,7 +59,7 @@ func (c *Converter) Convert(s string) (string, error) {
 			}
 			pending.Reset()
 			n = c.trie.Root()
-		default:
+		} else {
 			pending.WriteRune(ch)
 			n = n.Eq()
 		}
