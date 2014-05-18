@@ -11,6 +11,11 @@ func NewTrie() *Trie {
 	return &Trie{nil}
 }
 
+// Root returns a root node of the trie.
+func (t *Trie) Root() *TrieNode {
+	return t.root
+}
+
 // Dig return a node to store provided key.  check is callbacked when digged
 // and forwarded a node, when it returns false, digging is terminated.
 func (t *Trie) Dig(key string, check func(*TrieNode) bool) (*TrieNode, bool) {
