@@ -10,27 +10,25 @@ type StackableRuneReader struct {
 	readers *list.List
 }
 
-func New() (sr *StackableRuneReader) {
-	sr = &StackableRuneReader{list.New()}
-	return
+func New() *StackableRuneReader {
+	return &StackableRuneReader{list.New()}
 }
 
-func (sr *StackableRuneReader) PushFront(s string) {
+func (r *StackableRuneReader) PushFront(s string) {
 	if len(s) > 0 {
-		sr.readers.PushFront(strings.NewReader(s))
+		r.readers.PushFront(strings.NewReader(s))
 	}
 }
 
-func (sr *StackableRuneReader) ReadRune() (ch rune, size int, err error) {
-	for sr.readers.Len() > 0 {
-		f := sr.readers.Front()
-		r := f.Value.(*strings.Reader)
-		ch, size, err = r.ReadRune()
+func (r *StackableRuneReader) ReadRune() (ch rune, size int, err error) {
+	for r.readers.Len() > 0 {
+		front := r.readers.Front()
+		curr := front.Value.(*strings.Reader)
+		ch, size, err = curr.ReadRune()
 		if err != io.EOF {
 			return
 		}
-		sr.readers.Remove(f)
+		r.readers.Remove(front)
 	}
-	err = io.EOF
-	return
+	return 0, 0, io.EOF
 }

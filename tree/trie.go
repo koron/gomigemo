@@ -67,14 +67,13 @@ func (t *Trie) Get(key string) (r *TrieNode) {
 				return nil
 			}
 			diff := ch - n.ch
-			switch {
-			case diff == 0:
+			if diff == 0 {
 				r = n
 				n = n.eq
 				break
-			case diff < 0:
+			} else if diff < 0 {
 				n = n.lo
-			default:
+			} else {
 				n = n.hi
 			}
 		}
@@ -134,6 +133,20 @@ func (n *TrieNode) Width() int {
 		count += 1
 	})
 	return count
+}
+
+// Find a node which have the rune from siblings.
+func (n *TrieNode) Find(ch rune) *TrieNode {
+	for n != nil {
+		if ch == n.ch {
+			break
+		} else if ch < n.ch {
+			n = n.lo
+		} else {
+			n = n.hi
+		}
+	}
+	return n
 }
 
 func (n *TrieNode) siblings() []*TrieNode {
