@@ -1,4 +1,4 @@
-package stackable_rune_reader
+package runereader
 
 import (
 	"container/list"

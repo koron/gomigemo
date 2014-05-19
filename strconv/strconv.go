@@ -2,7 +2,7 @@ package strconv
 
 import (
 	"bytes"
-	reader "github.com/koron/gomigemo/stackable_rune_reader"
+	"github.com/koron/gomigemo/runereader"
 	"github.com/koron/gomigemo/tree"
 	"io"
 )
@@ -25,7 +25,7 @@ func (c *Converter) Add(key, output, remain string) {
 
 func (c *Converter) Convert(s string) (string, error) {
 	var out, pending bytes.Buffer
-	r := reader.New()
+	r := runereader.New()
 	r.PushFront(s)
 	n := c.trie.Root()
 
