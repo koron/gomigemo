@@ -35,7 +35,7 @@ func (c *Converter) Convert(s string) (string, error) {
 			err = nil
 			break
 		} else if err != nil {
-			return "", nil
+			return "", err
 		}
 
 		n = n.Find(ch)

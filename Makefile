@@ -1,2 +1,2 @@
 test:
-	go test ./trie .
+	go test ./inflator ./proto ./runereader ./strconv ./tree
