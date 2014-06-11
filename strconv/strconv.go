@@ -3,12 +3,13 @@ package strconv
 import (
 	"bytes"
 	"github.com/koron/gomigemo/runereader"
-	"github.com/koron/gomigemo/tree"
+	"github.com/koron/gelatin/trie"
 	"io"
 )
 
 type Converter struct {
-	trie *tree.Trie
+	trie *trie.TernaryTrie
+	balanced bool
 }
 
 type entry struct {
@@ -16,14 +17,22 @@ type entry struct {
 }
 
 func New() *Converter {
-	return &Converter{tree.NewTrie()}
+	return &Converter{
+		trie: trie.NewTernaryTrie(),
+		balanced: false,
+	}
 }
 
 func (c *Converter) Add(key, output, remain string) {
 	c.trie.Put(key, &entry{output, remain})
+	c.balanced = false
 }
 
 func (c *Converter) Convert(s string) (string, error) {
+	if !c.balanced {
+		c.balance()
+	}
+
 	var out, pending bytes.Buffer
 	r := runereader.New()
 	r.PushFront(s)
@@ -38,7 +47,7 @@ func (c *Converter) Convert(s string) (string, error) {
 			return "", err
 		}
 
-		n = n.Find(ch)
+		n = n.Get(ch)
 		if n == nil {
 			pending.WriteRune(ch)
 			ch2, _, err := pending.ReadRune()
@@ -46,11 +55,11 @@ func (c *Converter) Convert(s string) (string, error) {
 				out.WriteRune(ch2)
 				r.PushFront(pending.String())
 				pending.Reset()
+				n = c.trie.Root()
 			} else if err != io.EOF {
 				return "", err
 			}
-		} else if n.Value != nil {
-			e := n.Value.(*entry)
+		} else if e, ok := n.Value().(*entry); ok {
 			if len(e.output) > 0 {
 				out.WriteString(e.output)
 			}
@@ -61,7 +70,6 @@ func (c *Converter) Convert(s string) (string, error) {
 			n = c.trie.Root()
 		} else {
 			pending.WriteRune(ch)
-			n = n.Eq()
 		}
 	}
 
@@ -69,4 +77,9 @@ func (c *Converter) Convert(s string) (string, error) {
 		out.WriteString(pending.String())
 	}
 	return out.String(), nil
+}
+
+func (c *Converter) balance() {
+	c.trie.Balance()
+	c.balanced = true
 }
