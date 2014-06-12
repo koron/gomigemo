@@ -1,0 +1,23 @@
+// vim:set sts=2 sw=2 tw=0:
+
+digraph sample {
+  raw -> matcher;
+  raw -> hira;
+  hira -> matcher;
+  hira -> kata;
+  kata -> matcher;
+  kata -> han;
+  han -> matcher;
+  hira -> kanji;
+  kanji -> matcher;
+  raw -> wide;
+  wide -> matcher;
+
+  raw [ label="ローマ字\n(アルファベット)" ];
+  hira [ label="ひらがな" ];
+  matcher [ label="正規表現他" ];
+  kata [ label="全角カタカナ" ];
+  han [ label="半角カタカナ" ];
+  wide [ label="全角" ];
+  kanji [ label="漢字" ];
+}
