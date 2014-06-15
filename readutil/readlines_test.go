@@ -7,7 +7,7 @@ import (
 
 func open(path string, t *testing.T) <-chan string {
 	ch := make(chan string, 1)
-	go ReadFileLines(path, func (line string, err error) error {
+	go ReadFileLines(path, func(line string, err error) error {
 		if len(line) > 0 {
 			ch <- line
 		}

@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-type LineProc func (line string, err error) error
+type LineProc func(line string, err error) error
 
 // ReadLines read lines from reader, and callback proc for each line.
 func ReadLines(rd io.Reader, proc LineProc) error {
