@@ -2,8 +2,8 @@ SUBDIRS = \
 	./conv \
 	./dict \
 	./inflator \
-	./proto \
-	./readutil
+	./readutil \
+	./migemo
 
 test:
 	go test $(SUBDIRS)

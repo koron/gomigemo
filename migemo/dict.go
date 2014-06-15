@@ -5,7 +5,7 @@ type dict struct {
 }
 
 func (d *dict) Matcher(s string) (Matcher, error) {
-	return newMatcher(d, s);
+	return newMatcher(d, s)
 }
 
 func (d *dict) load() error {
