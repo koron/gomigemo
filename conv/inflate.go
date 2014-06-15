@@ -1,4 +1,4 @@
-package strconv
+package conv
 
 import (
 	"github.com/koron/gomigemo/inflator"

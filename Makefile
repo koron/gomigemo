@@ -1,2 +1,9 @@
+SUBDIRS = \
+	./conv \
+	./dict \
+	./inflator \
+	./proto \
+	./readutil
+
 test:
-	go test ./inflator ./proto ./readutil ./strconv
+	go test $(SUBDIRS)
