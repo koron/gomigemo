@@ -9,6 +9,6 @@ func (d *dict) Matcher(s string) (Matcher, error) {
 }
 
 func (d *dict) load() error {
-	// TODO:
+	// TODO: Load dictonaries and build inflator.
 	return nil
 }

@@ -28,6 +28,6 @@ func LoadDict(path string, proc DictEntryProc) error {
 }
 
 func line2entry(line string) (entry *DictEntry, err error) {
-	// TODO:
+	// TODO: Convert SKK dict line (string) to entry.
 	return nil, nil
 }

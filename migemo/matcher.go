@@ -22,7 +22,7 @@ func newMatcher(d *dict, s string) (*matcher, error) {
 }
 
 func (m *matcher) Match(s string) (chan Match, error) {
-	// TODO:
+	// TODO: Make own match with trie.
 	return nil, nil
 }
 
