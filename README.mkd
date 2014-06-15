@@ -1,7 +1,3 @@
 # Go/Migemo module [![Build Status](https://travis-ci.org/koron/gomigemo.png)](https://travis-ci.org/koron/gomigemo)
 
 Experiment version.
-
-## Memo
-
-  * code.google.com/p/mahonia - encoding converter written by golang.
