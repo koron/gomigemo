@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/koron/gomigemo/proto"
+	"github.com/koron/gomigemo/migemo"
 	"log"
 )
 
