@@ -2,13 +2,13 @@ package strconv
 
 import (
 	"bytes"
-	"github.com/koron/gomigemo/readutil"
 	"github.com/koron/gelatin/trie"
+	"github.com/koron/gomigemo/readutil"
 	"io"
 )
 
 type Converter struct {
-	trie *trie.TernaryTrie
+	trie     *trie.TernaryTrie
 	balanced bool
 }
 
@@ -18,7 +18,7 @@ type entry struct {
 
 func New() *Converter {
 	return &Converter{
-		trie: trie.NewTernaryTrie(),
+		trie:     trie.NewTernaryTrie(),
 		balanced: false,
 	}
 }
