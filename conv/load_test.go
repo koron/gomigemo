@@ -31,3 +31,18 @@ func TestLoad(t *testing.T) {
 	assertConvert(t, c, "いきん", "ikinn")
 	assertConvert(t, c, "いきn", "ikin")
 }
+
+func assertUnescape(t *testing.T, text, expected string) {
+	actual := unescape(text)
+	if actual != expected {
+		t.Errorf("unescape failed: expected=%s actual=%s", expected, actual)
+	}
+}
+
+func TestUnescape(t *testing.T) {
+	assertUnescape(t, "abc", "abc")
+	assertUnescape(t, "a\\bc", "abc")
+	assertUnescape(t, "\\\\", "\\")
+	assertUnescape(t, "\\#", "#")
+	assertUnescape(t, "\\", "\\")
+}

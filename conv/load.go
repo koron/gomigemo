@@ -1,6 +1,7 @@
 package conv
 
 import (
+	"bytes"
 	"fmt"
 	"github.com/koron/gomigemo/readutil"
 	"io"
@@ -30,14 +31,40 @@ func (c *Converter) load(rd io.Reader, name string) (count int, err error) {
 			return fmt.Errorf("Invalid format in file %s at line %d",
 				name, lnum)
 		}
-		key, emit := parts[0], parts[1]
+		key := unescape(parts[0])
+		emit := unescape(parts[1])
 		var remain string
 		if len(parts) >= 3 {
-			remain = parts[2]
+			remain = unescape(parts[2])
 		}
 		c.Add(key, emit, remain)
 		count++
 		return err
 	})
 	return count, err
+}
+
+func unescape(s string) string {
+	if !strings.ContainsRune(s, '\\') {
+		return s
+	}
+	b := new(bytes.Buffer)
+	b.Grow(len(s))
+	escape := false
+	for _, r := range []rune(s) {
+		if escape {
+			escape = false
+			b.WriteRune(r)
+		} else {
+			if r == '\\' {
+				escape = true
+			} else {
+				b.WriteRune(r)
+			}
+		}
+	}
+	if escape {
+		b.WriteRune('\\')
+	}
+	return b.String()
 }
