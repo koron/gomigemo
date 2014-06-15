@@ -1,4 +1,4 @@
-# Go/Migemo module [![Build Status](https://travis-ci.org/koron/gomigemo.png)](https://travis-ci.org/koron/gomigemo)
+# Go/Migemo module <!--[![Build Status](https://travis-ci.org/koron/gomigemo.svg)](https://travis-ci.org/koron/gomigemo)-->
 
 Experiment version.
 
@@ -17,4 +17,7 @@ re, err := migemo.Compile(dict, "aiueo")
 
 ## LICENSE
 
-`_dict/SKK-JISYO.utf-8.L` is GPL.  All others are MIT License, see LICENSE.
+Distributed under MIT License,
+except for `_dict/SKK-JISYO.utf-8.L` which is GPL.
+
+See LICENSE.
