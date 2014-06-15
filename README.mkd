@@ -1,4 +1,4 @@
-# Go/Migemo module <!--[![Build Status](https://travis-ci.org/koron/gomigemo.svg)](https://travis-ci.org/koron/gomigemo)-->
+# Go/Migemo module [![Build Status](https://travis-ci.org/koron/gomigemo.svg)](https://travis-ci.org/koron/gomigemo)
 
 Experiment version.
 

@@ -1,5 +1,7 @@
 language: go
 go:
   - 1.2
+install:
+  - go get github.com/koron/gelatin/trie
 script:
-  - go test -v ./inflator ./proto ./readutil ./strconv
+  - make test
