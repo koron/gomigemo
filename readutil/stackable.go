@@ -1,4 +1,4 @@
-package runereader
+package readutil
 
 import (
 	"container/list"
@@ -10,7 +10,7 @@ type StackableRuneReader struct {
 	readers *list.List
 }
 
-func New() *StackableRuneReader {
+func NewStackabeRuneReader() *StackableRuneReader {
 	return &StackableRuneReader{list.New()}
 }
 

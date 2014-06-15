@@ -1,2 +1,2 @@
 test:
-	go test ./inflator ./proto ./runereader ./strconv
+	go test ./inflator ./proto ./readutil ./strconv

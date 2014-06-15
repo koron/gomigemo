@@ -1,4 +1,4 @@
-package runereader
+package readutil
 
 import (
 	"io"
@@ -24,7 +24,7 @@ func assertEOF(t *testing.T, r *StackableRuneReader) {
 }
 
 func TestStackedReader(t *testing.T) {
-	r := New()
+	r := NewStackabeRuneReader()
 	r.PushFront("abc")
 	assertReadRune(t, 'a', r)
 	assertReadRune(t, 'b', r)
@@ -33,7 +33,7 @@ func TestStackedReader(t *testing.T) {
 }
 
 func TestStackedReaderMultiple(t *testing.T) {
-	r := New()
+	r := NewStackabeRuneReader()
 	r.PushFront("foo")
 	r.PushFront("bar")
 	assertReadRune(t, 'b', r)
@@ -46,7 +46,7 @@ func TestStackedReaderMultiple(t *testing.T) {
 }
 
 func TestStackedReaderMultipleSuspend1(t *testing.T) {
-	r := New()
+	r := NewStackabeRuneReader()
 	r.PushFront("foo")
 	assertReadRune(t, 'f', r)
 	r.PushFront("bar")
@@ -59,7 +59,7 @@ func TestStackedReaderMultipleSuspend1(t *testing.T) {
 }
 
 func TestStackedReaderMultipleSuspend2(t *testing.T) {
-	r := New()
+	r := NewStackabeRuneReader()
 	r.PushFront("foo")
 	assertReadRune(t, 'f', r)
 	assertReadRune(t, 'o', r)
@@ -72,7 +72,7 @@ func TestStackedReaderMultipleSuspend2(t *testing.T) {
 }
 
 func TestStackedReaderMultipleSuspend3(t *testing.T) {
-	r := New()
+	r := NewStackabeRuneReader()
 	r.PushFront("foo")
 	assertReadRune(t, 'f', r)
 	assertReadRune(t, 'o', r)

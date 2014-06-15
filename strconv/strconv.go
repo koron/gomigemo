@@ -2,7 +2,7 @@ package strconv
 
 import (
 	"bytes"
-	"github.com/koron/gomigemo/runereader"
+	"github.com/koron/gomigemo/readutil"
 	"github.com/koron/gelatin/trie"
 	"io"
 )
@@ -34,7 +34,7 @@ func (c *Converter) Convert(s string) (string, error) {
 	}
 
 	var out, pending bytes.Buffer
-	r := runereader.New()
+	r := readutil.NewStackabeRuneReader()
 	r.PushFront(s)
 	n := c.trie.Root()
 
