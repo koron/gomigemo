@@ -4,18 +4,16 @@ import (
 	"testing"
 )
 
-func assertEquals(t *testing.T, exp string, act string) {
-	if exp != act {
-		t.Errorf("expected=%s actually=%s", exp, act)
-	}
-}
-
-func assertConvert(t *testing.T, c *Converter, exp string, in string) {
-	out, err := c.Convert(in)
+func assertConvert(t *testing.T, c *Converter, expected, input string) {
+	converted, err := c.Convert(input)
 	if err != nil {
-		t.Error("failed to convert", err)
+		t.Error("Convert failed:", err)
+		t.Logf("  input=%s expected=%s", input, expected)
 	}
-	assertEquals(t, exp, out)
+	if converted != expected {
+		t.Error("Convert returns unexpected:", converted)
+		t.Logf("  input=%s expected=%s", input, expected)
+	}
 }
 
 func TestEmpty(t *testing.T) {
