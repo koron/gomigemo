@@ -3,6 +3,7 @@ package skk
 import (
 	"fmt"
 	"github.com/koron/gomigemo/readutil"
+	"io"
 	"strings"
 )
 
@@ -20,6 +21,9 @@ type DictEntryProc func(entry *DictEntry)
 
 func LoadDict(path string, proc DictEntryProc) error {
 	return readutil.ReadFileLines(path, func(line string, err error) error {
+		if err == io.EOF && len(line) == 0 {
+			return err
+		}
 		entry, err2 := line2entry(line)
 		if err2 != nil {
 			return err2
@@ -39,7 +43,7 @@ func line2entry(line string) (entry *DictEntry, err error) {
 	line = strings.TrimRight(line, " \t\r\n")
 	items := strings.SplitN(line, " ", 2)
 	if items == nil || len(items) != 2 {
-		return nil, fmt.Errorf("Invalid format")
+		return nil, fmt.Errorf("Invalid format: %s", line)
 	}
 	label := items[0]
 	values := strings.Split(strings.Trim(items[1], "/"), "/")

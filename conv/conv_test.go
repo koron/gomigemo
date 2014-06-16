@@ -43,3 +43,10 @@ func TestTiny(t *testing.T) {
 	assertConvert(t, c, "Bc", "abc")
 	assertConvert(t, c, "Ba", "aba")
 }
+
+func TestHira(t *testing.T) {
+	c := New()
+	c.Add("a", "あ", "")
+	c.Add("i", "い", "")
+	assertConvert(t, c, "あい", "ai")
+}

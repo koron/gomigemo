@@ -51,7 +51,7 @@ func (m *matcher) add(s string) {
 	n := m.trie.Root()
 	for _, c := range s {
 		n, _ = n.Dig(c)
-		if n.Value != nil {
+		if n.Value() != nil {
 			return
 		}
 	}
