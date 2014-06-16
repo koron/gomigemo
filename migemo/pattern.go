@@ -2,8 +2,9 @@ package migemo
 
 import (
 	"bytes"
-	"github.com/koron/gelatin/trie"
 	"container/list"
+	"github.com/koron/gelatin/trie"
+	"regexp"
 )
 
 func (m *matcher) Pattern() (pattern string, err error) {
@@ -34,10 +35,10 @@ func (m *matcher) writePattern(b *bytes.Buffer, n trie.Node) error {
 	if c0 > 0 {
 		if c0 > 1 {
 			b.WriteString(m.options.OpClassIn)
-			b.WriteString(m.escapeMeta(labels))
+			b.WriteString(m.quoteMeta(labels))
 			b.WriteString(m.options.OpClassOut)
 		} else {
-			b.WriteString(m.escapeMeta(labels))
+			b.WriteString(m.quoteMeta(labels))
 		}
 	}
 	// Ouput nodes which have some children.
@@ -50,7 +51,7 @@ func (m *matcher) writePattern(b *bytes.Buffer, n trie.Node) error {
 				first = false
 			}
 			child := e.Value.(*trie.TernaryNode)
-			b.WriteString(m.escapeMeta(string(child.Label())))
+			b.WriteString(m.quoteMeta(string(child.Label())))
 			b.WriteString(m.options.OpWSpaces)
 			m.writePattern(b, child.FirstChild())
 		}
@@ -77,7 +78,7 @@ func (m *matcher) splitLabels(n trie.Node) (label string, nodes *list.List) {
 	return b.String(), l
 }
 
-func (m *matcher) escapeMeta(s string) string {
-	// TODO: escape regexp meta chars.
-	return s
+func (m *matcher) quoteMeta(s string) string {
+	// Quote regexp meta chars.
+	return regexp.QuoteMeta(s)
 }

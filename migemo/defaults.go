@@ -7,6 +7,6 @@ var defaultMatcherOptions = MatcherOptions{
 	OpClassIn:  "(?:",
 	OpClassOut: ")",
 	OpWSpaces:  "\\s+",
-	// TODO: list up regexp meta characters.
-	MetaChars:  "",
+	// FIXME: Support MetaChars customization in future.
+	//MetaChars:  "",
 }

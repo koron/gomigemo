@@ -16,11 +16,11 @@ type Matcher interface {
 }
 
 type MatcherOptions struct {
-	OpOr string
+	OpOr                  string
 	OpGroupIn, OpGroupOut string
 	OpClassIn, OpClassOut string
-	OpWSpaces string
-	MetaChars string
+	OpWSpaces             string
+	//MetaChars string
 }
 
 type Match struct {
@@ -28,7 +28,7 @@ type Match struct {
 }
 
 func Load(path string) (Dict, error) {
-	d := &dict{path}
+	d := &dict{path: path}
 	err := d.load()
 	if err != nil {
 		return nil, err

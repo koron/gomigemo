@@ -1,7 +1,12 @@
 package migemo
 
+import (
+	"github.com/koron/gomigemo/inflator"
+)
+
 type dict struct {
-	path string
+	path     string
+	inflator inflator.Inflatable
 }
 
 func (d *dict) Matcher(s string) (Matcher, error) {
