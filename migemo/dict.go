@@ -37,10 +37,6 @@ func (d *dict) load() error {
 		inflator.Dispatch(inflator.Echo(), r2h),
 		inflator.Dispatch(inflator.Echo(), k2k))
 
-	// For debug.
-	d.inflator = inflator.Dispatch(inflator.Echo(), r2h)
-	d.inflator = r2h
-
 	// FIXME: Make these (loader and builder) flexible.
 	return nil
 }

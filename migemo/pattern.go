@@ -5,6 +5,7 @@ import (
 	"container/list"
 	"github.com/koron/gelatin/trie"
 	"regexp"
+	"unicode/utf8"
 )
 
 func (m *matcher) Pattern() (pattern string, err error) {
@@ -25,7 +26,7 @@ func (m *matcher) writePattern(b *bytes.Buffer, n trie.Node) error {
 	labels, child_nodes := m.splitLabels(n)
 	// Output group in.
 	grouped := false
-	c0 := len(labels)
+	c0 := utf8.RuneCountInString(labels)
 	c1 := child_nodes.Len()
 	if c0+c1 > 1 && c1 > 0 {
 		grouped = true
@@ -53,7 +54,7 @@ func (m *matcher) writePattern(b *bytes.Buffer, n trie.Node) error {
 			child := e.Value.(*trie.TernaryNode)
 			b.WriteString(m.quoteMeta(string(child.Label())))
 			b.WriteString(m.options.OpWSpaces)
-			m.writePattern(b, child.FirstChild())
+			m.writePattern(b, child)
 		}
 	}
 	// Output group out.
