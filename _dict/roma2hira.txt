@@ -2,372 +2,372 @@
 #
 # Format: {INPUT}\t{EMIT}[\t{REMAIN}]
 
-a	‚ 
-i	‚¢
-u	‚¤
-e	‚¦
-o	‚¨
+a	ã‚
+i	ã„
+u	ã†
+e	ãˆ
+o	ãŠ
 
-ka	‚©
-ki	‚«
-ku	‚­
-ke	‚¯
-ko	‚±
+ka	ã‹
+ki	ã
+ku	ã
+ke	ã‘
+ko	ã“
 
-sa	‚³
-si	‚µ
-su	‚·
-se	‚¹
-so	‚»
+sa	ã•
+si	ã—
+su	ã™
+se	ã›
+so	ã
 
-ta	‚½
-ti	‚¿
-tu	‚Â
-te	‚Ä
-to	‚Æ
+ta	ãŸ
+ti	ã¡
+tu	ã¤
+te	ã¦
+to	ã¨
 
-na	‚È
-ni	‚É
-nu	‚Ê
-ne	‚Ë
-no	‚Ì
+na	ãª
+ni	ã«
+nu	ã¬
+ne	ã­
+no	ã®
 
-ha	‚Í
-hi	‚Ð
-hu	‚Ó
-he	‚Ö
-ho	‚Ù
+ha	ã¯
+hi	ã²
+hu	ãµ
+he	ã¸
+ho	ã»
 
-ma	‚Ü
-mi	‚Ý
-mu	‚Þ
-me	‚ß
-mo	‚à
+ma	ã¾
+mi	ã¿
+mu	ã‚€
+me	ã‚
+mo	ã‚‚
 
-ya	‚â
-yi	‚¢
-yu	‚ä
-ye	‚¢‚¥
-yo	‚æ
+ya	ã‚„
+yi	ã„
+yu	ã‚†
+ye	ã„ã‡
+yo	ã‚ˆ
 
-ra	‚ç
-ri	‚è
-ru	‚é
-re	‚ê
-ro	‚ë
+ra	ã‚‰
+ri	ã‚Š
+ru	ã‚‹
+re	ã‚Œ
+ro	ã‚
 
-wa	‚í
-wi	‚î
-wu	‚¤
-we	‚ï
-wo	‚ð
+wa	ã‚
+wi	ã‚
+wu	ã†
+we	ã‚‘
+wo	ã‚’
 
-ga	‚ª
-gi	‚¬
-gu	‚®
-ge	‚°
-go	‚²
+ga	ãŒ
+gi	ãŽ
+gu	ã
+ge	ã’
+go	ã”
 
-za	‚´
-zi	‚¶
-zu	‚¸
-ze	‚º
-zo	‚¼
+za	ã–
+zi	ã˜
+zu	ãš
+ze	ãœ
+zo	ãž
 
-da	‚¾
-di	‚À
-du	‚Ã
-de	‚Å
-do	‚Ç
+da	ã 
+di	ã¢
+du	ã¥
+de	ã§
+do	ã©
 
-ba	‚Î
-bi	‚Ñ
-bu	‚Ô
-be	‚×
-bo	‚Ú
+ba	ã°
+bi	ã³
+bu	ã¶
+be	ã¹
+bo	ã¼
 
-pa	‚Ï
-pi	‚Ò
-pu	‚Õ
-pe	‚Ø
-po	‚Û
+pa	ã±
+pi	ã´
+pu	ã·
+pe	ãº
+po	ã½
 
-la	‚Ÿ
-li	‚¡
-lu	‚£
-le	‚¥
-lo	‚§
+la	ã
+li	ãƒ
+lu	ã…
+le	ã‡
+lo	ã‰
 
-lya	‚á
-lyi	‚¡
-lyu	‚ã
-lye	‚¥
-lyo	‚å
+lya	ã‚ƒ
+lyi	ãƒ
+lyu	ã‚…
+lye	ã‡
+lyo	ã‚‡
 
-xa	‚Ÿ
-xi	‚¡
-xu	‚£
-xe	‚¥
-xo	‚§
+xa	ã
+xi	ãƒ
+xu	ã…
+xe	ã‡
+xo	ã‰
 
-xya	‚á
-xyi	‚¡
-xyu	‚ã
-xye	‚¥
-xyo	‚å
+xya	ã‚ƒ
+xyi	ãƒ
+xyu	ã‚…
+xye	ã‡
+xyo	ã‚‡
 
-kya	‚«‚á
-kyi	‚«‚¡
-kyu	‚«‚ã
-kye	‚«‚¥
-kyo	‚«‚å
+kya	ãã‚ƒ
+kyi	ããƒ
+kyu	ãã‚…
+kye	ãã‡
+kyo	ãã‚‡
 
-gwa	‚®‚Ÿ
-gwi	‚®‚¡
-gwu	‚®‚£
-gwe	‚®‚¥
-gwo	‚®‚§
+gwa	ãã
+gwi	ããƒ
+gwu	ãã…
+gwe	ãã‡
+gwo	ãã‰
 
-gya	‚¬‚á
-gyi	‚¬‚¡
-gyu	‚¬‚ã
-gye	‚¬‚¥
-gyo	‚¬‚å
+gya	ãŽã‚ƒ
+gyi	ãŽãƒ
+gyu	ãŽã‚…
+gye	ãŽã‡
+gyo	ãŽã‚‡
 
-sha	‚µ‚á
-shi	‚µ
-shu	‚µ‚ã
-she	‚µ‚¥
-sho	‚µ‚å
+sha	ã—ã‚ƒ
+shi	ã—
+shu	ã—ã‚…
+she	ã—ã‡
+sho	ã—ã‚‡
 
-swa	‚·‚Ÿ
-swi	‚·‚¡
-swu	‚·‚£
-swe	‚·‚¥
-swo	‚·‚§
+swa	ã™ã
+swi	ã™ãƒ
+swu	ã™ã…
+swe	ã™ã‡
+swo	ã™ã‰
 
-sya	‚µ‚á
-syi	‚µ‚¡
-syu	‚µ‚ã
-sye	‚µ‚¥
-syo	‚µ‚å
+sya	ã—ã‚ƒ
+syi	ã—ãƒ
+syu	ã—ã‚…
+sye	ã—ã‡
+syo	ã—ã‚‡
 
-tha	‚Ä‚á
-thi	‚Ä‚¡
-thu	‚Ä‚ã
-the	‚Ä‚¥
-tho	‚Ä‚å
+tha	ã¦ã‚ƒ
+thi	ã¦ãƒ
+thu	ã¦ã‚…
+the	ã¦ã‡
+tho	ã¦ã‚‡
 
-tsa	‚Â‚Ÿ
-tsi	‚Â‚¡
-tsu	‚Â
-tse	‚Â‚¥
-tso	‚Â‚§
+tsa	ã¤ã
+tsi	ã¤ãƒ
+tsu	ã¤
+tse	ã¤ã‡
+tso	ã¤ã‰
 
-twa	‚Æ‚Ÿ
-twi	‚Æ‚¡
-twu	‚Æ‚£
-twe	‚Æ‚¥
-two	‚Æ‚§
+twa	ã¨ã
+twi	ã¨ãƒ
+twu	ã¨ã…
+twe	ã¨ã‡
+two	ã¨ã‰
 
-tya	‚¿‚á
-tyi	‚¿‚¡
-tyu	‚¿‚ã
-tye	‚¿‚¥
-tyo	‚¿‚å
+tya	ã¡ã‚ƒ
+tyi	ã¡ãƒ
+tyu	ã¡ã‚…
+tye	ã¡ã‡
+tyo	ã¡ã‚‡
 
-dha	‚Å‚á
-dhi	‚Å‚¡
-dhu	‚Å‚ã
-dhe	‚Å‚¥
-dho	‚Å‚å
+dha	ã§ã‚ƒ
+dhi	ã§ãƒ
+dhu	ã§ã‚…
+dhe	ã§ã‡
+dho	ã§ã‚‡
 
-nya	‚É‚á
-nyi	‚É‚¡
-nyu	‚É‚ã
-nye	‚É‚¥
-nyo	‚É‚å
+nya	ã«ã‚ƒ
+nyi	ã«ãƒ
+nyu	ã«ã‚…
+nye	ã«ã‡
+nyo	ã«ã‚‡
 
-hya	‚Ð‚á
-hyi	‚Ð‚¡
-hyu	‚Ð‚ã
-hye	‚Ð‚¥
-hyo	‚Ð‚å
+hya	ã²ã‚ƒ
+hyi	ã²ãƒ
+hyu	ã²ã‚…
+hye	ã²ã‡
+hyo	ã²ã‚‡
 
-bya	‚Ñ‚á
-byi	‚Ñ‚¡
-byu	‚Ñ‚ã
-bye	‚Ñ‚¥
-byo	‚Ñ‚å
+bya	ã³ã‚ƒ
+byi	ã³ãƒ
+byu	ã³ã‚…
+bye	ã³ã‡
+byo	ã³ã‚‡
 
-pya	‚Ò‚á
-pyi	‚Ò‚¡
-pyu	‚Ò‚ã
-pye	‚Ò‚¥
-pyo	‚Ò‚å
+pya	ã´ã‚ƒ
+pyi	ã´ãƒ
+pyu	ã´ã‚…
+pye	ã´ã‡
+pyo	ã´ã‚‡
 
-mya	‚Ý‚á
-myi	‚Ý‚¡
-myu	‚Ý‚ã
-mye	‚Ý‚¥
-myo	‚Ý‚å
+mya	ã¿ã‚ƒ
+myi	ã¿ãƒ
+myu	ã¿ã‚…
+mye	ã¿ã‡
+myo	ã¿ã‚‡
 
-rya	‚è‚á
-ryi	‚è‚¡
-ryu	‚è‚ã
-rye	‚è‚¥
-ryo	‚è‚å
+rya	ã‚Šã‚ƒ
+ryi	ã‚Šãƒ
+ryu	ã‚Šã‚…
+rye	ã‚Šã‡
+ryo	ã‚Šã‚‡
 
-ca	‚©
-ci	‚µ
-cu	‚­
-ce	‚¹
-co	‚±
+ca	ã‹
+ci	ã—
+cu	ã
+ce	ã›
+co	ã“
 
-cha	‚¿‚á
-chi	‚¿
-chu	‚¿‚ã
-che	‚¿‚¥
-cho	‚¿‚å
+cha	ã¡ã‚ƒ
+chi	ã¡
+chu	ã¡ã‚…
+che	ã¡ã‡
+cho	ã¡ã‚‡
 
-fa	‚Ó‚Ÿ
-fi	‚Ó‚¡
-fu	‚Ó
-fe	‚Ó‚¥
-fo	‚Ó‚§
+fa	ãµã
+fi	ãµãƒ
+fu	ãµ
+fe	ãµã‡
+fo	ãµã‰
 
-fwa	‚Ó‚Ÿ
-fwi	‚Ó‚¡
-fwu	‚Ó‚£
-fwe	‚Ó‚¥
-fwo	‚Ó‚§
+fwa	ãµã
+fwi	ãµãƒ
+fwu	ãµã…
+fwe	ãµã‡
+fwo	ãµã‰
 
-fya	‚Ó‚á
-fyi	‚Ó‚¡
-fyu	‚Ó‚ã
-fye	‚Ó‚¥
-fyo	‚Ó‚å
+fya	ãµã‚ƒ
+fyi	ãµãƒ
+fyu	ãµã‚…
+fye	ãµã‡
+fyo	ãµã‚‡
 
-ja	‚¶‚á
-ji	‚¶
-ju	‚¶‚ã
-je	‚¶‚¥
-jo	‚¶‚å
+ja	ã˜ã‚ƒ
+ji	ã˜
+ju	ã˜ã‚…
+je	ã˜ã‡
+jo	ã˜ã‚‡
 
-jya	‚¶‚á
-jyi	‚¶‚¡
-jyu	‚¶‚ã
-jye	‚¶‚¥
-jyo	‚¶‚å
+jya	ã˜ã‚ƒ
+jyi	ã˜ãƒ
+jyu	ã˜ã‚…
+jye	ã˜ã‡
+jyo	ã˜ã‚‡
 
-qa	‚­‚Ÿ
-qi	‚­‚¡
-qu	‚­
-qe	‚­‚¥
-qo	‚­‚§
+qa	ãã
+qi	ããƒ
+qu	ã
+qe	ãã‡
+qo	ãã‰
 
-qwa	‚­‚Ÿ
-qwi	‚­‚¡
-qwu	‚­‚£
-qwe	‚­‚¥
-qwo	‚­‚§
+qwa	ãã
+qwi	ããƒ
+qwu	ãã…
+qwe	ãã‡
+qwo	ãã‰
 
-qya	‚­‚á
-qyi	‚­‚¡
-qyu	‚­‚ã
-qye	‚­‚¥
-qyo	‚­‚å
+qya	ãã‚ƒ
+qyi	ããƒ
+qyu	ãã‚…
+qye	ãã‡
+qyo	ãã‚‡
 
-va	ƒ”‚Ÿ
-vi	ƒ”‚¡
-vu	ƒ”
-ve	ƒ”‚¥
-vo	ƒ”‚§
+va	ãƒ´ã
+vi	ãƒ´ãƒ
+vu	ãƒ´
+ve	ãƒ´ã‡
+vo	ãƒ´ã‰
 
-vya	ƒ”‚á
-vyi	ƒ”‚¡
-vyu	ƒ”‚ã
-vye	ƒ”‚¥
-vyo	ƒ”‚å
+vya	ãƒ´ã‚ƒ
+vyi	ãƒ´ãƒ
+vyu	ãƒ´ã‚…
+vye	ãƒ´ã‡
+vyo	ãƒ´ã‚‡
 
-nn	‚ñ
-n'	‚ñ
-xn	‚ñ
-ltu	‚Á
-xtu	‚Á
-lwa	‚ì
-xwa	‚ì
-lka	ƒ•
-xka	ƒ•
-lke	ƒ–
-xke	ƒ–
-kwa	‚­‚Ÿ
+nn	ã‚“
+n'	ã‚“
+xn	ã‚“
+ltu	ã£
+xtu	ã£
+lwa	ã‚Ž
+xwa	ã‚Ž
+lka	ãƒµ
+xka	ãƒµ
+lke	ãƒ¶
+xke	ãƒ¶
+kwa	ãã
 
--	[
-~	`
+-	ãƒ¼
+~	ï½ž
 
-mba	‚ñ‚Î
-mbi	‚ñ‚Ñ
-mbu	‚ñ‚Ô
-mbe	‚ñ‚×
-mbo	‚ñ‚Ú
+mba	ã‚“ã°
+mbi	ã‚“ã³
+mbu	ã‚“ã¶
+mbe	ã‚“ã¹
+mbo	ã‚“ã¼
 
-mpa	‚ñ‚Ï
-mpi	‚ñ‚Ò
-mpu	‚ñ‚Õ
-mpe	‚ñ‚Ø
-mpo	‚ñ‚Û
+mpa	ã‚“ã±
+mpi	ã‚“ã´
+mpu	ã‚“ã·
+mpe	ã‚“ãº
+mpo	ã‚“ã½
 
-mma	‚ñ‚Ü
-mmi	‚ñ‚Ý
-mmu	‚ñ‚Þ
-mme	‚ñ‚ß
-mmo	‚ñ‚à
+mma	ã‚“ã¾
+mmi	ã‚“ã¿
+mmu	ã‚“ã‚€
+mme	ã‚“ã‚
+mmo	ã‚“ã‚‚
 
-tcha	‚Á‚¿‚á
-tchi	‚Á‚¿
-tchu	‚Á‚¿‚ã
-tche	‚Á‚¿‚¥
-tcho	‚Á‚¿‚å
+tcha	ã£ã¡ã‚ƒ
+tchi	ã£ã¡
+tchu	ã£ã¡ã‚…
+tche	ã£ã¡ã‡
+tcho	ã£ã¡ã‚‡
 
-bb	‚Á	b
-cc	‚Á	c
-dd	‚Á	d
-ff	‚Á	f
-gg	‚Á	g
-hh	‚Á	h
-jj	‚Á	j
-kk	‚Á	k
-ll	‚Á	l
-mm	‚Á	m
-pp	‚Á	p
-qq	‚Á	q
-rr	‚Á	r
-ss	‚Á	s
-tt	‚Á	t
-vv	‚Á	v
-ww	‚Á	w
-xx	‚Á	x
-yy	‚Á	y
-zz	‚Á	z
+bb	ã£	b
+cc	ã£	c
+dd	ã£	d
+ff	ã£	f
+gg	ã£	g
+hh	ã£	h
+jj	ã£	j
+kk	ã£	k
+ll	ã£	l
+mm	ã£	m
+pp	ã£	p
+qq	ã£	q
+rr	ã£	r
+ss	ã£	s
+tt	ã£	t
+vv	ã£	v
+ww	ã£	w
+xx	ã£	x
+yy	ã£	y
+zz	ã£	z
 
-nb	‚ñ	b
-nc	‚ñ	c
-nd	‚ñ	d
-nf	‚ñ	f
-ng	‚ñ	g
-nh	‚ñ	h
-nj	‚ñ	j
-nk	‚ñ	k
-nl	‚ñ	l
-nm	‚ñ	m
-np	‚ñ	p
-nq	‚ñ	q
-nr	‚ñ	r
-ns	‚ñ	s
-nt	‚ñ	t
-nv	‚ñ	v
-nw	‚ñ	w
-nx	‚ñ	x
-ny	‚ñ	y
-nz	‚ñ	z
+nb	ã‚“	b
+nc	ã‚“	c
+nd	ã‚“	d
+nf	ã‚“	f
+ng	ã‚“	g
+nh	ã‚“	h
+nj	ã‚“	j
+nk	ã‚“	k
+nl	ã‚“	l
+nm	ã‚“	m
+np	ã‚“	p
+nq	ã‚“	q
+nr	ã‚“	r
+ns	ã‚“	s
+nt	ã‚“	t
+nv	ã‚“	v
+nw	ã‚“	w
+nx	ã‚“	x
+ny	ã‚“	y
+nz	ã‚“	z
