@@ -15,3 +15,12 @@ func (d *Dict) LoadSKK(path string) (count int, err error) {
 	})
 	return count, err
 }
+
+func LoadSKK(path string) (*Dict, error) {
+	d := New()
+	_, err := d.LoadSKK(path)
+	if err != nil {
+		return nil, err
+	}
+	return d, nil
+}

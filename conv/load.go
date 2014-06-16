@@ -68,3 +68,12 @@ func unescape(s string) string {
 	}
 	return b.String()
 }
+
+func LoadFile(path string) (*Converter, error) {
+	c := New()
+	_, err := c.LoadFile(path)
+	if err != nil {
+		return nil, err
+	}
+	return c, nil
+}

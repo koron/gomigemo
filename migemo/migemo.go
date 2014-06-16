@@ -51,3 +51,15 @@ func NewRegexp(m Matcher) (*regexp.Regexp, error) {
 	}
 	return regexp.Compile(p)
 }
+
+func Pattern(d Dict, s string) (string, error) {
+	m, err := d.Matcher(s)
+	if err != nil {
+		return "", err
+	}
+	p, err := m.Pattern()
+	if err != nil {
+		return "", err
+	}
+	return p, nil
+}
