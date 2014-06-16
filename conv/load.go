@@ -51,7 +51,7 @@ func unescape(s string) string {
 	b := new(bytes.Buffer)
 	b.Grow(len(s))
 	escape := false
-	for _, r := range []rune(s) {
+	for _, r := range s {
 		if escape {
 			escape = false
 			b.WriteRune(r)
