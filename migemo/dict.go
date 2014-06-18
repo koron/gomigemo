@@ -3,7 +3,7 @@ package migemo
 import (
 	"errors"
 	"github.com/koron/gomigemo/conv"
-	skk "github.com/koron/gomigemo/dict"
+	skkdict "github.com/koron/gomigemo/dict"
 	"github.com/koron/gomigemo/inflator"
 	"path/filepath"
 )
@@ -23,19 +23,36 @@ func (d *dict) load() error {
 	}
 
 	// Load dictionaries.
-	k2k, err := skk.LoadSKK(filepath.Join(d.path, "SKK-JISYO.utf-8.L"))
+	skk, err := skkdict.LoadSKK(filepath.Join(d.path, "SKK-JISYO.utf-8.L"))
 	if err != nil {
 		return err
 	}
-	r2h, err := conv.LoadFile(filepath.Join(d.path, "roma2hira.txt"))
+	roma2hira, err := conv.LoadFile(filepath.Join(d.path, "roma2hira.txt"))
+	if err != nil {
+		return err
+	}
+	hira2kata, err := conv.LoadFile(filepath.Join(d.path, "hira2kata.txt"))
+	if err != nil {
+		return err
+	}
+	wide2narrow, err := conv.LoadFile(filepath.Join(d.path, "wide2narrow.txt"))
 	if err != nil {
 		return err
 	}
 
 	// Build inflator.
 	d.inflator = inflator.Join(
-		inflator.Dispatch(inflator.Echo(), r2h),
-		inflator.Dispatch(inflator.Echo(), k2k))
+		inflator.DispatchEcho(
+			inflator.Join(
+				roma2hira,
+				inflator.Join(
+					inflator.DispatchEcho(hira2kata),
+					wide2narrow,
+				),
+			),
+		),
+		inflator.DispatchEcho(skk),
+	)
 
 	// FIXME: Make these (loader and builder) flexible.
 	return nil
