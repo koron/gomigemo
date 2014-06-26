@@ -1,19 +1,16 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
 	"github.com/koron/gomigemo/migemo"
+	"io"
 	"log"
-	"os"
-	"strings"
 )
 
 func dictdir() string {
 	return "./_dict"
 }
 
-func setupOption(m migemo.Matcher) {
+func adjustMatcher(m migemo.Matcher) {
 	o := m.GetOptions()
 	o.OpWSpaces = ""
 	m.SetOptions(o)
@@ -24,7 +21,7 @@ func query(d migemo.Dict, s string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	setupOption(m)
+	adjustMatcher(m)
 	p, err := m.Pattern()
 	if err != nil {
 		return "", err
@@ -32,27 +29,27 @@ func query(d migemo.Dict, s string) (string, error) {
 	return p, nil
 }
 
-func readInput(ch chan<- string) {
-	r := bufio.NewReader(os.Stdin)
+func queryLoop(v View, d migemo.Dict) {
 	for {
-		fmt.Print("QUERY: ")
-		l, err := r.ReadString('\n')
-		if l != "" {
-			ch <- strings.TrimSpace(l)
-		}
-		if err != nil {
+		q, err := v.GetQuery()
+		if err == io.EOF {
 			return
 		}
+		if err != nil {
+			log.Print(err)
+			continue
+		}
+		p, err := query(d, q)
+		if err != nil {
+			log.Print(err)
+			continue
+		}
+		err = v.PutPattern(p)
+		if err != nil {
+			log.Print(err)
+			continue
+		}
 	}
-}
-
-func openQueries() <-chan string {
-	ch := make(chan string, 1)
-	go func() {
-		readInput(ch)
-		close(ch)
-	}()
-	return ch
 }
 
 func main() {
@@ -60,13 +57,5 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	ch := openQueries()
-	for q := range ch {
-		p, err := query(dict, q)
-		if err != nil {
-			log.Print(err)
-			continue
-		}
-		fmt.Printf("PATTERN: %s\n", p)
-	}
+	queryLoop(NewConsole(), dict)
 }
