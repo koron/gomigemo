@@ -45,10 +45,10 @@ func (d *dict) load() error {
 		inflator.DispatchEcho(
 			inflator.Join(
 				roma2hira,
-				inflator.Join(
-					inflator.DispatchEcho(hira2kata),
-					wide2narrow,
-				),
+				inflator.DispatchEcho(inflator.Join(
+					hira2kata,
+					inflator.DispatchEcho(wide2narrow),
+				)),
 			),
 		),
 		inflator.DispatchEcho(skk),
