@@ -44,4 +44,16 @@ func TestInflate(t *testing.T) {
 	assertInflate(t, c, "ak", []string{
 		"あか", "あけ", "あき", "あっ", "あこ", "あく",
 	})
+	assertInflate(t, c, "ik", []string{
+		"いか", "いけ", "いき", "いっ", "いこ", "いく",
+	})
+	assertInflate(t, c, "uk", []string{
+		"うか", "うけ", "うき", "うっ", "うこ", "うく",
+	})
+	assertInflate(t, c, "ek", []string{
+		"えか", "えけ", "えき", "えっ", "えこ", "えく",
+	})
+	assertInflate(t, c, "ok", []string{
+		"おか", "おけ", "おき", "おっ", "おこ", "おく",
+	})
 }
