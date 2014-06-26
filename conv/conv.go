@@ -29,6 +29,12 @@ func (c *Converter) Add(key, output, remain string) {
 }
 
 func (c *Converter) Convert(s string) (string, error) {
+	return c.convert2(s, nil)
+}
+
+type resultProc func(core, remain string, n trie.Node)
+
+func (c *Converter) convert2(s string, proc resultProc) (string, error) {
 	if !c.balanced {
 		c.balance()
 	}
@@ -73,9 +79,13 @@ func (c *Converter) Convert(s string) (string, error) {
 		}
 	}
 
+	if proc != nil {
+		proc(out.String(), pending.String(), n)
+	}
 	if pending.Len() > 0 {
 		out.WriteString(pending.String())
 	}
+
 	return out.String(), nil
 }
 

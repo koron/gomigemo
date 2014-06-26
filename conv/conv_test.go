@@ -50,3 +50,11 @@ func TestHira(t *testing.T) {
 	c.Add("i", "い", "")
 	assertConvert(t, c, "あい", "ai")
 }
+
+func TestHiraRemain(t *testing.T) {
+	c := New()
+	c.Add("a", "あ", "")
+	c.Add("ka", "か", "")
+	c.Add("ki", "き", "")
+	assertConvert(t, c, "あk", "ak")
+}
