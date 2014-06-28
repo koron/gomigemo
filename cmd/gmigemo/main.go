@@ -4,10 +4,20 @@ import (
 	"github.com/koron/gomigemo/migemo"
 	"io"
 	"log"
+	"os"
+	"path"
 )
 
 func dictdir() string {
-	return "./_dict"
+	d := os.Getenv("GMIGEMO_DICTDIR")
+	if d != "" {
+		return d
+	}
+	d = os.Getenv("GOPATH")
+	if d == "" {
+		return "./_dict"
+	}
+	return path.Join(d, "src", "github.com", "koron", "gomigemo", "_dict")
 }
 
 func adjustMatcher(m migemo.Matcher) {
