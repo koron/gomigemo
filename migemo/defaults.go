@@ -6,7 +6,7 @@ var defaultMatcherOptions = MatcherOptions{
 	OpGroupOut: ")",
 	OpClassIn:  "[",
 	OpClassOut: "]",
-	OpWSpaces:  "\\s+",
+	OpWSpaces:  "\\s*",
 	// FIXME: Support MetaChars customization in future.
 	//MetaChars:  "",
 }
