@@ -4,21 +4,7 @@ import (
 	"github.com/koron/gomigemo/migemo"
 	"io"
 	"log"
-	"os"
-	"path/filepath"
 )
-
-func dictdir() string {
-	d := os.Getenv("GMIGEMO_DICTDIR")
-	if d != "" {
-		return d
-	}
-	d = os.Getenv("GOPATH")
-	if d == "" {
-		return "./_dict"
-	}
-	return filepath.Join(d, "src", "github.com", "koron", "gomigemo", "_dict")
-}
 
 func adjustMatcher(m migemo.Matcher) {
 	o := m.GetOptions()
@@ -63,7 +49,7 @@ func queryLoop(v View, d migemo.Dict) {
 }
 
 func main() {
-	dict, err := migemo.Load(dictdir())
+	dict, err := migemo.LoadDefault()
 	if err != nil {
 		log.Fatal(err)
 	}

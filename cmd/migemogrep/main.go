@@ -6,34 +6,12 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"path/filepath"
 	"regexp"
 
 	"github.com/koron/gomigemo/migemo"
 )
 
-func dictdir() string {
-	d := os.Getenv("GMIGEMO_DICTDIR")
-	if d != "" {
-		return d
-	}
-	d = os.Getenv("GOPATH")
-	if d == "" {
-		d = "."
-	}
-	for _, p := range filepath.SplitList(d) {
-		candidate := filepath.Join(p, "src", "github.com", "koron", "gomigemo", "_dict")
-		if _, err := os.Stat(candidate); err != nil {
-			continue
-		}
-		return candidate
-	}
-
-	// fallback to current directory
-	return d
-}
-
-var dictPath = flag.String("d", dictdir(), "Location to dictionary")
+var dictdir = flag.String("d", migemo.DefaultDictdir(), "Location to dictionary")
 
 func grep(r io.Reader, re *regexp.Regexp) error {
 	buf := bufio.NewReader(r)
@@ -66,7 +44,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	dict, err := migemo.Load(*dictPath)
+	dict, err := migemo.Load(*dictdir)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
