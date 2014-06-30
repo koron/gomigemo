@@ -5,7 +5,7 @@ import (
 	"io"
 	"log"
 	"os"
-	"path"
+	"path/filepath"
 )
 
 func dictdir() string {
@@ -17,7 +17,7 @@ func dictdir() string {
 	if d == "" {
 		return "./_dict"
 	}
-	return path.Join(d, "src", "github.com", "koron", "gomigemo", "_dict")
+	return filepath.Join(d, "src", "github.com", "koron", "gomigemo", "_dict")
 }
 
 func adjustMatcher(m migemo.Matcher) {
