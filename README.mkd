@@ -1,7 +1,5 @@
 # Go/Migemo module [![Build Status](https://travis-ci.org/koron/gomigemo.svg)](https://travis-ci.org/koron/gomigemo)
 
-Experiment version.
-
 ## Usage
 
 ```go
@@ -9,7 +7,7 @@ Experiment version.
 import "github.com/koron/gomigemo/migemo"
 
 // Load dictionary files.
-dict, err := migemo.Load("_dict")
+dict, err := migemo.LoadDefault()
 
 // Compile to get *regexp.Regexp.
 re, err := migemo.Compile(dict, "aiueo")
