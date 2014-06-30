@@ -19,12 +19,21 @@ func dictdir() string {
 	}
 	d = os.Getenv("GOPATH")
 	if d == "" {
-		return "./_dict"
+		d = "."
 	}
-	return filepath.Join(d, "src", "github.com", "koron", "gomigemo", "_dict")
+	for _, p := range filepath.SplitList(d) {
+		candidate := filepath.Join(p, "src", "github.com", "koron", "gomigemo", "_dict")
+		if _, err := os.Stat(candidate); err != nil {
+			continue
+		}
+		return candidate
+	}
+
+	// fallback to current directory
+	return d
 }
 
-var dictPath = flag.String("d", dictdir(),  "Location to dictionary")
+var dictPath = flag.String("d", dictdir(), "Location to dictionary")
 
 func grep(r io.Reader, re *regexp.Regexp) error {
 	buf := bufio.NewReader(r)
