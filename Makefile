@@ -5,15 +5,17 @@ SUBDIRS = \
 	./readutil \
 	./migemo
 
+DICTDIR = ./_dict
+
 test:
 	go test $(SUBDIRS)
 
 tags:
 	ctags -R $(SUBDIRS)
 
-bindata: migemo/bindata.go
+bindata: embedict/bindata.go
 
-migemo/bindata.go: _dict/*
-	go-bindata -o $@ -pkg="migemo" -prefix="./_dict" ./_dict
+embedict/bindata.go: $(DICTDIR)/*
+	go-bindata -o $@ -nomemcopy -pkg="embedict" -prefix="$(DICTDIR)" $(DICTDIR)
 
 .PHONY: tags
