@@ -6,17 +6,26 @@ import (
 	skkdict "github.com/koron/gomigemo/dict"
 	"github.com/koron/gomigemo/inflator"
 	"io"
-	"path/filepath"
 )
 
 type dict struct {
 	assets   Assets
-	path     string
 	inflator inflator.Inflatable
 }
 
 func (d *dict) Matcher(s string) (Matcher, error) {
 	return newMatcher(d, s)
+}
+
+func (d *dict) loadSKKDict(name string) (sd *skkdict.Dict, err error) {
+	err = d.assets.Get(name, func(rd io.Reader) (err error) {
+		sd, err = skkdict.ReadSKK(rd)
+		return err
+	})
+	if err != nil {
+		sd = nil
+	}
+	return sd, err
 }
 
 func (d *dict) loadConv(name string) (c *conv.Converter, err error) {
@@ -37,7 +46,7 @@ func (d *dict) load() error {
 	}
 
 	// Load dictionaries.
-	skk, err := skkdict.LoadSKK(filepath.Join(d.path, "SKK-JISYO.utf-8.L"))
+	skk, err := d.loadSKKDict("SKK-JISYO.utf-8.L")
 	if err != nil {
 		return err
 	}

@@ -28,12 +28,11 @@ type Match struct {
 }
 
 func Load(path string) (Dict, error) {
-	d := &dict{
-		assets: &PathAssets{
-			root: path,
-		},
-		path: path,
-	}
+	return LoadAssets(&PathAssets{root: path})
+}
+
+func LoadAssets(assets Assets) (Dict, error) {
+	d := &dict{assets: assets}
 	err := d.load()
 	if err != nil {
 		return nil, err
