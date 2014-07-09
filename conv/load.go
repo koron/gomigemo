@@ -15,10 +15,10 @@ func (c *Converter) LoadFile(path string) (count int, err error) {
 		return 0, err
 	}
 	defer file.Close()
-	return c.load(file, path)
+	return c.Load(file, path)
 }
 
-func (c *Converter) load(rd io.Reader, name string) (count int, err error) {
+func (c *Converter) Load(rd io.Reader, name string) (count int, err error) {
 	lnum := 0
 	err = readutil.ReadLines(rd, func(line string, err error) error {
 		lnum++

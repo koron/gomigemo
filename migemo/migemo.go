@@ -28,7 +28,12 @@ type Match struct {
 }
 
 func Load(path string) (Dict, error) {
-	d := &dict{path: path}
+	d := &dict{
+		assets: &PathAssets{
+			root: path,
+		},
+		path: path,
+	}
 	err := d.load()
 	if err != nil {
 		return nil, err

@@ -5,16 +5,30 @@ import (
 	"github.com/koron/gomigemo/conv"
 	skkdict "github.com/koron/gomigemo/dict"
 	"github.com/koron/gomigemo/inflator"
+	"io"
 	"path/filepath"
 )
 
 type dict struct {
+	assets   Assets
 	path     string
 	inflator inflator.Inflatable
 }
 
 func (d *dict) Matcher(s string) (Matcher, error) {
 	return newMatcher(d, s)
+}
+
+func (d *dict) loadConv(name string) (c *conv.Converter, err error) {
+	c = conv.New()
+	err = d.assets.Get(name, func(rd io.Reader) error {
+		_, err := c.Load(rd, name)
+		return err
+	})
+	if err != nil {
+		c = nil
+	}
+	return c, err
 }
 
 func (d *dict) load() error {
@@ -27,15 +41,15 @@ func (d *dict) load() error {
 	if err != nil {
 		return err
 	}
-	roma2hira, err := conv.LoadFile(filepath.Join(d.path, "roma2hira.txt"))
+	roma2hira, err := d.loadConv("roma2hira.txt")
 	if err != nil {
 		return err
 	}
-	hira2kata, err := conv.LoadFile(filepath.Join(d.path, "hira2kata.txt"))
+	hira2kata, err := d.loadConv("hira2kata.txt")
 	if err != nil {
 		return err
 	}
-	wide2narrow, err := conv.LoadFile(filepath.Join(d.path, "wide2narrow.txt"))
+	wide2narrow, err := d.loadConv("wide2narrow.txt")
 	if err != nil {
 		return err
 	}
