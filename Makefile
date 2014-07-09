@@ -11,4 +11,9 @@ test:
 tags:
 	ctags -R $(SUBDIRS)
 
+bindata: migemo/bindata.go
+
+migemo/bindata.go: _dict/*
+	go-bindata -o $@ -pkg="migemo" -prefix="./_dict" ./_dict
+
 .PHONY: tags
