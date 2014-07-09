@@ -2,12 +2,30 @@
 
 ## Usage
 
+To load dictionary files from file system:
+
 ```go
 // Import migemo package.
 import "github.com/koron/gomigemo/migemo"
 
 // Load dictionary files.
 dict, err := migemo.LoadDefault()
+
+// Compile to get *regexp.Regexp.
+re, err := migemo.Compile(dict, "aiueo")
+```
+
+To embedded dictionary to the executable file:
+
+```go
+// Import migemo and embedict package.
+import (
+    "github.com/koron/gomigemo/embedict"
+    "github.com/koron/gomigemo/migemo"
+)
+
+// Load embedded dictionary.
+dict, err := embedict.Load()
 
 // Compile to get *regexp.Regexp.
 re, err := migemo.Compile(dict, "aiueo")
