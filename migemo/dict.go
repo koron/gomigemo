@@ -5,16 +5,39 @@ import (
 	"github.com/koron/gomigemo/conv"
 	skkdict "github.com/koron/gomigemo/dict"
 	"github.com/koron/gomigemo/inflator"
-	"path/filepath"
+	"io"
 )
 
 type dict struct {
-	path     string
+	assets   Assets
 	inflator inflator.Inflatable
 }
 
 func (d *dict) Matcher(s string) (Matcher, error) {
 	return newMatcher(d, s)
+}
+
+func (d *dict) loadSKKDict(name string) (sd *skkdict.Dict, err error) {
+	err = d.assets.Get(name, func(rd io.Reader) (err error) {
+		sd, err = skkdict.ReadSKK(rd)
+		return err
+	})
+	if err != nil {
+		sd = nil
+	}
+	return sd, err
+}
+
+func (d *dict) loadConv(name string) (c *conv.Converter, err error) {
+	c = conv.New()
+	err = d.assets.Get(name, func(rd io.Reader) error {
+		_, err := c.Load(rd, name)
+		return err
+	})
+	if err != nil {
+		c = nil
+	}
+	return c, err
 }
 
 func (d *dict) load() error {
@@ -23,19 +46,19 @@ func (d *dict) load() error {
 	}
 
 	// Load dictionaries.
-	skk, err := skkdict.LoadSKK(filepath.Join(d.path, "SKK-JISYO.utf-8.L"))
+	skk, err := d.loadSKKDict("SKK-JISYO.utf-8.L")
 	if err != nil {
 		return err
 	}
-	roma2hira, err := conv.LoadFile(filepath.Join(d.path, "roma2hira.txt"))
+	roma2hira, err := d.loadConv("roma2hira.txt")
 	if err != nil {
 		return err
 	}
-	hira2kata, err := conv.LoadFile(filepath.Join(d.path, "hira2kata.txt"))
+	hira2kata, err := d.loadConv("hira2kata.txt")
 	if err != nil {
 		return err
 	}
-	wide2narrow, err := conv.LoadFile(filepath.Join(d.path, "wide2narrow.txt"))
+	wide2narrow, err := d.loadConv("wide2narrow.txt")
 	if err != nil {
 		return err
 	}

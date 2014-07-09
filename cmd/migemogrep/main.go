@@ -8,10 +8,9 @@ import (
 	"os"
 	"regexp"
 
+	"github.com/koron/gomigemo/embedict"
 	"github.com/koron/gomigemo/migemo"
 )
-
-var dictdir = flag.String("d", migemo.DefaultDictdir(), "Location to dictionary")
 
 func grep(r io.Reader, re *regexp.Regexp) error {
 	buf := bufio.NewReader(r)
@@ -44,7 +43,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	dict, err := migemo.Load(*dictdir)
+	dict, err := embedict.Load()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)

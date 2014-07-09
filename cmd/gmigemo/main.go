@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/koron/gomigemo/embedict"
 	"github.com/koron/gomigemo/migemo"
 	"io"
 	"log"
@@ -49,7 +50,7 @@ func queryLoop(v View, d migemo.Dict) {
 }
 
 func main() {
-	dict, err := migemo.LoadDefault()
+	dict, err := embedict.Load()
 	if err != nil {
 		log.Fatal(err)
 	}

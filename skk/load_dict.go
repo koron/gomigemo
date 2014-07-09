@@ -19,8 +19,16 @@ type DictEntry struct {
 
 type DictEntryProc func(entry *DictEntry)
 
+func ReadDict(rd io.Reader, proc DictEntryProc) error {
+	return readutil.ReadLines(rd, wrapProc(proc))
+}
+
 func LoadDict(path string, proc DictEntryProc) error {
-	return readutil.ReadFileLines(path, func(line string, err error) error {
+	return readutil.ReadFileLines(path, wrapProc(proc))
+}
+
+func wrapProc(proc DictEntryProc) readutil.LineProc {
+	return func(line string, err error) error {
 		if err == io.EOF && len(line) == 0 {
 			return err
 		}
@@ -32,7 +40,7 @@ func LoadDict(path string, proc DictEntryProc) error {
 			proc(entry)
 		}
 		return err
-	})
+	}
 }
 
 func line2entry(line string) (entry *DictEntry, err error) {

@@ -1,7 +1,7 @@
 package migemo
 
 import (
-	"fmt"
+	"errors"
 	"github.com/koron/gelatin/trie"
 )
 
@@ -14,7 +14,7 @@ type matcher struct {
 
 func newMatcher(d *dict, s string) (*matcher, error) {
 	if d.inflator == nil {
-		return nil, fmt.Errorf("Dictionary in %s is not loaded", d.path)
+		return nil, errors.New("Dictionary is not loaded")
 	}
 	m := &matcher{
 		options: defaultMatcherOptions,
