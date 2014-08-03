@@ -1,6 +1,7 @@
 SUBDIRS = \
 	./conv \
 	./dict \
+	./embedict \
 	./inflator \
 	./readutil \
 	./migemo
@@ -9,6 +10,9 @@ DICTDIR = ./_dict
 
 test:
 	go test $(SUBDIRS)
+
+bench:
+	go test -bench . $(SUBDIRS)
 
 tags:
 	ctags -R $(SUBDIRS)
