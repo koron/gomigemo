@@ -1,7 +1,8 @@
 language: go
 go:
-  - 1.2
+  - 1.4
 install:
   - go get github.com/koron/gelatin/trie
 script:
   - make test
+sudo: false
