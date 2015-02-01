@@ -8,7 +8,7 @@ func TestFilter(t *testing.T) {
 	p := Prefix("a", "aa", "A", "AA")
 	s := Suffix("b", "bb", "B", "BB")
 	j1 := Join(p, s)
-	f := Filter(func(s string) bool{
+	f := Filter(func(s string) bool {
 		return len(s) >= 4
 	})
 	j2 := Join(j1, f)
