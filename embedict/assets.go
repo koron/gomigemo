@@ -2,6 +2,7 @@ package embedict
 
 import (
 	"bytes"
+
 	"github.com/koron/gomigemo/migemo"
 )
 

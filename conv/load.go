@@ -3,10 +3,11 @@ package conv
 import (
 	"bytes"
 	"fmt"
-	"github.com/koron/gomigemo/readutil"
 	"io"
 	"os"
 	"strings"
+
+	"github.com/koron/gomigemo/readutil"
 )
 
 func (c *Converter) LoadFile(path string) (count int, err error) {

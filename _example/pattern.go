@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/koron/gomigemo/migemo"
 	"log"
+
+	"github.com/koron/gomigemo/migemo"
 )
 
 func main() {

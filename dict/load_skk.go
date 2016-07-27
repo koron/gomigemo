@@ -1,8 +1,9 @@
 package dict
 
 import (
-	"github.com/koron/gomigemo/skk"
 	"io"
+
+	"github.com/koron/gomigemo/skk"
 )
 
 func addDictEntry(d *Dict, entry *skk.DictEntry) {

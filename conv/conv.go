@@ -2,9 +2,10 @@ package conv
 
 import (
 	"bytes"
+	"io"
+
 	"github.com/koron/gelatin/trie"
 	"github.com/koron/gomigemo/readutil"
-	"io"
 )
 
 type Converter struct {

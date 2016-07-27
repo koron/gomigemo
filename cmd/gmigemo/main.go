@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/koron/gomigemo/embedict"
-	"github.com/koron/gomigemo/migemo"
 	"io"
 	"log"
+
+	"github.com/koron/gomigemo/embedict"
+	"github.com/koron/gomigemo/migemo"
 )
 
 func adjustMatcher(m migemo.Matcher) {

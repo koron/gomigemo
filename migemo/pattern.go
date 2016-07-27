@@ -3,9 +3,10 @@ package migemo
 import (
 	"bytes"
 	"container/list"
-	"github.com/koron/gelatin/trie"
 	"regexp"
 	"unicode/utf8"
+
+	"github.com/koron/gelatin/trie"
 )
 
 func (m *matcher) Pattern() (pattern string, err error) {

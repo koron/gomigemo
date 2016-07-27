@@ -2,6 +2,7 @@ package migemo
 
 import (
 	"errors"
+
 	"github.com/koron/gelatin/trie"
 )
 

@@ -2,10 +2,11 @@ package migemo
 
 import (
 	"errors"
+	"io"
+
 	"github.com/koron/gomigemo/conv"
 	skkdict "github.com/koron/gomigemo/dict"
 	"github.com/koron/gomigemo/inflator"
-	"io"
 )
 
 type dict struct {

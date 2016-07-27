@@ -2,9 +2,10 @@ package skk
 
 import (
 	"fmt"
-	"github.com/koron/gomigemo/readutil"
 	"io"
 	"strings"
+
+	"github.com/koron/gomigemo/readutil"
 )
 
 type Word struct {
