@@ -42,7 +42,7 @@ func (m *matcher) writePattern(b *bytes.Buffer, n trie.Node) error {
 			b.WriteString(m.quoteMeta(labels))
 		}
 	}
-	// Ouput nodes which have some children.
+	// Output nodes which have some children.
 	if c1 > 0 {
 		first := c0 == 0
 		for e := child_nodes.Front(); e != nil; e = e.Next() {
