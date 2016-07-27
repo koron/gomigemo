@@ -1,4 +1,8 @@
-# Go/Migemo module [![Build Status](https://travis-ci.org/koron/gomigemo.svg)](https://travis-ci.org/koron/gomigemo)
+# Go/Migemo module
+
+[![GoDoc](https://godoc.org/github.com/koron/gomigemo/migemo?status.svg)](https://godoc.org/github.com/koron/gomigemo/migemo)
+[![Build Status](https://travis-ci.org/koron/gomigemo.svg)](https://travis-ci.org/koron/gomigemo)
+[![Go Report Card](https://goreportcard.com/badge/koron/gomigemo)](https://goreportcard.com/report/koron/gomigemo)
 
 ## Usage
 
