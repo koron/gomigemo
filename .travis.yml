@@ -1,8 +1,10 @@
 language: go
 go:
-  - 1.4.3
-  - 1.5.4
-  - 1.6.3
+  - 1.4.x
+  - 1.5.x
+  - 1.6.x
+  - 1.7.x
+  - 1.8.x
 install:
   - go get github.com/koron/gelatin/trie
   - go get github.com/koron/go-skkdict
