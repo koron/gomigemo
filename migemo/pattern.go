@@ -11,7 +11,7 @@ import (
 
 func (m *matcher) Pattern() (pattern string, err error) {
 	if m.patterned {
-		return pattern, nil
+		return m.pattern, nil
 	}
 	b := new(bytes.Buffer)
 	err = m.writePattern(b, m.trie.Root())
