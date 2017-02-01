@@ -37,6 +37,7 @@ func (m *matcher) Match(s string) (chan Match, error) {
 
 func (m *matcher) SetOptions(o MatcherOptions) {
 	m.options = o
+	m.patterned = false
 	return
 }
 
