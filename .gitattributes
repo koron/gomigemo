@@ -2,4 +2,4 @@
 
 readutil/testdata/readlines_test*.txt -crlf
 
-_dict/* linguist-vendored
+embedict/_dict/* linguist-vendored
