@@ -1,3 +1,4 @@
 *.go -crlf
 
 readutil/readlines_test*.txt -crlf
+_dict/* linguist-vendored
