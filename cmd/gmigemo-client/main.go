@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 
+	"github.com/koron/gomigemo/internal/cli"
 	"github.com/koron/gomigemo/rpc/client"
 )
 
@@ -15,7 +16,7 @@ func query(c *client.Client, s string) (string, error) {
 	return rx.String(), nil
 }
 
-func queryLoop(v View, c *client.Client) {
+func queryLoop(v cli.View, c *client.Client) {
 	for {
 		q, err := v.GetQuery()
 		if err == io.EOF {
@@ -43,5 +44,5 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	queryLoop(NewConsole(), c)
+	queryLoop(cli.NewConsole(), c)
 }

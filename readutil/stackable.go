@@ -6,20 +6,24 @@ import (
 	"strings"
 )
 
+// StackableRuneReader provides io.RuneReader which can be pushed back strings.
 type StackableRuneReader struct {
 	readers *list.List
 }
 
+// NewStackabeRuneReader creates a new StackableRuneReader instance.
 func NewStackabeRuneReader() *StackableRuneReader {
 	return &StackableRuneReader{list.New()}
 }
 
+// PushFront pushes back a string.
 func (r *StackableRuneReader) PushFront(s string) {
 	if len(s) > 0 {
 		r.readers.PushFront(strings.NewReader(s))
 	}
 }
 
+// ReadRune reads a rune, which implements io.RuneReader.
 func (r *StackableRuneReader) ReadRune() (ch rune, size int, err error) {
 	for r.readers.Len() > 0 {
 		front := r.readers.Front()

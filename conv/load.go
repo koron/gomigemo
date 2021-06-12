@@ -10,6 +10,7 @@ import (
 	"github.com/koron/gomigemo/readutil"
 )
 
+// LoadFile loads entries from a file.
 func (c *Converter) LoadFile(path string) (count int, err error) {
 	file, err := os.Open(path)
 	if err != nil {
@@ -19,6 +20,7 @@ func (c *Converter) LoadFile(path string) (count int, err error) {
 	return c.Load(file, path)
 }
 
+// Load loads entries from io.Reader.
 func (c *Converter) Load(rd io.Reader, name string) (count int, err error) {
 	lnum := 0
 	err = readutil.ReadLines(rd, func(line string, err error) error {
@@ -70,6 +72,7 @@ func unescape(s string) string {
 	return b.String()
 }
 
+// LoadFile creates a Conveter with entries which loaded from a file.
 func LoadFile(path string) (*Converter, error) {
 	c := New()
 	_, err := c.LoadFile(path)

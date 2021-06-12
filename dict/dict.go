@@ -5,6 +5,7 @@ import (
 	"github.com/koron/gomigemo/inflator"
 )
 
+// Dict is a trie tree dictionary.
 type Dict struct {
 	trie     *trie.TernaryTrie
 	balanced bool
@@ -14,6 +15,7 @@ type entry struct {
 	words []string
 }
 
+// New creates a dictionary.
 func New() *Dict {
 	return &Dict{
 		trie:     trie.NewTernaryTrie(),
@@ -21,11 +23,13 @@ func New() *Dict {
 	}
 }
 
+// Add adds a label and corresponding words for the label to dictionary.
 func (d *Dict) Add(label string, words []string) {
 	d.trie.Put(label, &entry{words: words})
 	d.balanced = false
 }
 
+// Balance makes internal trie tree balanced.
 func (d *Dict) Balance() {
 	if !d.balanced {
 		d.trie.Balance()
@@ -33,6 +37,7 @@ func (d *Dict) Balance() {
 	}
 }
 
+// Get retrieves all words for a label with proc callback.
 func (d *Dict) Get(label string, proc func(word string) bool) {
 	n := d.trie.Get(label)
 	if n == nil {
@@ -56,6 +61,7 @@ func (d *Dict) Get(label string, proc func(word string) bool) {
 	n.Each(f)
 }
 
+// GetAll retrieves all words for a label with array.
 func (d *Dict) GetAll(label string, max int) []string {
 	limit := max
 	if limit == 0 {
@@ -73,6 +79,7 @@ func (d *Dict) GetAll(label string, max int) []string {
 	return words
 }
 
+// Inflate retrieves all words for a label with channel.
 func (d *Dict) Inflate(s string) <-chan string {
 	return inflator.Start(func(ch chan<- string) {
 		d.Get(s, func(word string) bool {

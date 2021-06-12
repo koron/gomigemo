@@ -3,6 +3,7 @@ package inflator
 type echo struct {
 }
 
+// Echo provides an Inflatable which returns a string as is.
 func Echo() Inflatable {
 	return &echo{}
 }

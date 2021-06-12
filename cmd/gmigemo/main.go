@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/koron/gomigemo/embedict"
+	"github.com/koron/gomigemo/internal/cli"
 	"github.com/koron/gomigemo/migemo"
 )
 
@@ -27,7 +28,7 @@ func query(d migemo.Dict, s string) (string, error) {
 	return p, nil
 }
 
-func queryLoop(v View, d migemo.Dict) {
+func queryLoop(v cli.View, d migemo.Dict) {
 	for {
 		q, err := v.GetQuery()
 		if err == io.EOF {
@@ -55,5 +56,5 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	queryLoop(NewConsole(), dict)
+	queryLoop(cli.NewConsole(), dict)
 }

@@ -4,6 +4,7 @@ type filter struct {
 	check func(string) bool
 }
 
+// Filter provides a filter Inflatable.
 func Filter(check func(string) bool) Inflatable {
 	return &filter{check}
 }

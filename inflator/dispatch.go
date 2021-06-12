@@ -4,6 +4,7 @@ type dispatcher struct {
 	inflatables []Inflatable
 }
 
+// Dispatch is an Inflatable which dispatch a string to Inflatables.
 func Dispatch(first Inflatable, others ...Inflatable) Inflatable {
 	inflatables := make([]Inflatable, len(others)+1)
 	inflatables[0] = first
@@ -23,6 +24,7 @@ func (d *dispatcher) Inflate(s string) <-chan string {
 	})
 }
 
+// DispatchEcho is an Inflatable which combined Echo and Dispatch.
 func DispatchEcho(inflatables ...Inflatable) Inflatable {
 	return Dispatch(Echo(), inflatables...)
 }

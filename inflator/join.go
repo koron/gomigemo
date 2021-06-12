@@ -4,6 +4,7 @@ type joiner struct {
 	first, second Inflatable
 }
 
+// Join joins two Inflatables into one Inflatable.
 func Join(first, second Inflatable) Inflatable {
 	return &joiner{first, second}
 }

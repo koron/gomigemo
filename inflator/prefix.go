@@ -4,6 +4,7 @@ type prefixer struct {
 	prefixes []string
 }
 
+// Prefix provides Inflatable with prefixes.
 func Prefix(prefixes ...string) Inflatable {
 	return &prefixer{prefixes}
 }

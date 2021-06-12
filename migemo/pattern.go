@@ -24,11 +24,11 @@ func (m *matcher) Pattern() (pattern string, err error) {
 }
 
 func (m *matcher) writePattern(b *bytes.Buffer, n trie.Node) error {
-	labels, child_nodes := m.splitLabels(n)
+	labels, chlidNodes := m.splitLabels(n)
 	// Output group in.
 	grouped := false
 	c0 := utf8.RuneCountInString(labels)
-	c1 := child_nodes.Len()
+	c1 := chlidNodes.Len()
 	if c0+c1 > 1 && c1 > 0 {
 		grouped = true
 		b.WriteString(m.options.OpGroupIn)
@@ -46,7 +46,7 @@ func (m *matcher) writePattern(b *bytes.Buffer, n trie.Node) error {
 	// Output nodes which have some children.
 	if c1 > 0 {
 		first := c0 == 0
-		for e := child_nodes.Front(); e != nil; e = e.Next() {
+		for e := chlidNodes.Front(); e != nil; e = e.Next() {
 			if !first {
 				b.WriteString(m.options.OpOr)
 			} else {
