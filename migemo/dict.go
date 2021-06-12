@@ -43,7 +43,7 @@ func (d *dict) loadConv(name string) (c *conv.Converter, err error) {
 
 func (d *dict) load() error {
 	if d.inflator != nil {
-		return errors.New("Dictionaries were loaded already.")
+		return errors.New("dictionaries were loaded already")
 	}
 
 	// Load dictionaries.

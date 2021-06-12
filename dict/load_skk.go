@@ -14,6 +14,7 @@ func addDictEntry(d *Dict, entry *skkdict.Entry) {
 	d.Add(entry.Label, words)
 }
 
+// ReadSKK reads a SKK dictionary from io.Reader.
 func ReadSKK(rd io.Reader) (d *Dict, err error) {
 	d = New()
 	r := skkdict.NewReader(rd)

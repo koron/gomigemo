@@ -15,7 +15,7 @@ type matcher struct {
 
 func newMatcher(d *dict, s string) (*matcher, error) {
 	if d.inflator == nil {
-		return nil, errors.New("Dictionary is not loaded")
+		return nil, errors.New("dictionary is not loaded")
 	}
 	m := &matcher{
 		options: defaultMatcherOptions,
@@ -38,7 +38,6 @@ func (m *matcher) Match(s string) (chan Match, error) {
 func (m *matcher) SetOptions(o MatcherOptions) {
 	m.options = o
 	m.patterned = false
-	return
 }
 
 func (m *matcher) GetOptions() MatcherOptions {

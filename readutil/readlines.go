@@ -6,6 +6,7 @@ import (
 	"os"
 )
 
+// LineProc defines callback which proceed each lines.
 type LineProc func(line string, err error) error
 
 // ReadLines read lines from reader, and callback proc for each line.

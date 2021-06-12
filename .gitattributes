@@ -1,4 +1,5 @@
 *.go -crlf
 
-readutil/readlines_test*.txt -crlf
-_dict/* linguist-vendored
+readutil/testdata/readlines_test*.txt -crlf
+
+embedict/_dict/* linguist-vendored

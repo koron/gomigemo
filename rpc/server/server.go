@@ -8,6 +8,7 @@ import (
 	"github.com/koron/gomigemo/embedict"
 )
 
+// RunDefault starts a migemo RPC server listening on default address/port.
 func RunDefault() error {
 	d, err := embedict.Load()
 	if err != nil {

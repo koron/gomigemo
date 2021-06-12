@@ -8,6 +8,7 @@ import (
 	"github.com/koron/gomigemo/readutil"
 )
 
+// Converter defines string (roma/katakana) converter with trie.
 type Converter struct {
 	trie     *trie.TernaryTrie
 	balanced bool
@@ -17,6 +18,7 @@ type entry struct {
 	output, remain string
 }
 
+// New creates a new conveter.
 func New() *Converter {
 	return &Converter{
 		trie:     trie.NewTernaryTrie(),
@@ -24,11 +26,13 @@ func New() *Converter {
 	}
 }
 
+// Add adds an entry for conversion.
 func (c *Converter) Add(key, output, remain string) {
 	c.trie.Put(key, &entry{output, remain})
 	c.balanced = false
 }
 
+// Convert converts a string as roma or katakana or so.
 func (c *Converter) Convert(s string) (string, error) {
 	return c.convert2(s, nil)
 }

@@ -4,6 +4,7 @@ type suffixer struct {
 	suffixes []string
 }
 
+// Suffix provides Inflatable with suffixes.
 func Suffix(suffixes ...string) Inflatable {
 	return &suffixer{suffixes}
 }
