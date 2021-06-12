@@ -7,13 +7,13 @@ import (
 func TestSuffix(t *testing.T) {
 	s := Suffix("foo", "bar", "baz")
 	c := s.Inflate("qux-")
-	if "qux-foo" != <-c {
+	if <-c != "qux-foo" {
 		t.Error("Suffix didn't return \"qux-foo\"")
 	}
-	if "qux-bar" != <-c {
+	if <-c != "qux-bar" {
 		t.Error("Suffix didn't return \"qux-bar\"")
 	}
-	if "qux-baz" != <-c {
+	if <-c != "qux-baz" {
 		t.Error("Suffix didn't return \"qux-baz\"")
 	}
 	if _, ok := <-c; ok {

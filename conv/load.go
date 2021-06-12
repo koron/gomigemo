@@ -31,7 +31,7 @@ func (c *Converter) Load(rd io.Reader, name string) (count int, err error) {
 		}
 		parts := strings.SplitN(line, "\t", 3)
 		if parts == nil || len(parts) < 2 {
-			return fmt.Errorf("Invalid format in file %s at line %d",
+			return fmt.Errorf("invalid format in file %s at line %d",
 				name, lnum)
 		}
 		key := unescape(parts[0])

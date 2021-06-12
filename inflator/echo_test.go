@@ -8,7 +8,7 @@ func TestEcho(t *testing.T) {
 	e := Echo()
 
 	c1 := e.Inflate("foo")
-	if "foo" != <-c1 {
+	if <-c1 != "foo" {
 		t.Error("Echo didn't return \"foo\"")
 	}
 	if _, ok := <-c1; ok {
@@ -16,7 +16,7 @@ func TestEcho(t *testing.T) {
 	}
 
 	c2 := e.Inflate("bar")
-	if "bar" != <-c2 {
+	if <-c2 != "bar" {
 		t.Error("Echo didn't return \"bar\"")
 	}
 	if _, ok := <-c2; ok {
