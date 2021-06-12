@@ -23,33 +23,33 @@ func open(path string, t *testing.T) <-chan string {
 }
 
 func TestReadLines(t *testing.T) {
-	ch := open("./readlines_test0.txt", t)
+	ch := open("./testdata/readlines_test0.txt", t)
 	if s1 := <-ch; s1 != "foo\n" {
 		t.Error("1st line is not \"foo\\n\":", s1)
 	}
 	if s2 := <-ch; s2 != "bar\n" {
-		t.Error("1st line is not \"bar\\n\":", s2)
+		t.Error("2nd line is not \"bar\\n\":", s2)
 	}
 	if s3 := <-ch; s3 != "baz\n" {
-		t.Error("1st line is not \"baz\\n\":", s3)
+		t.Error("3rd line is not \"baz\\n\":", s3)
 	}
 	if s4, ok := <-ch; ok != false {
-		t.Error("mode data:", s4)
+		t.Error("more data:", s4)
 	}
 }
 
 func TestReadLinesWithoutEOL(t *testing.T) {
-	ch := open("./readlines_test1.txt", t)
+	ch := open("./testdata/readlines_test1.txt", t)
 	if s1 := <-ch; s1 != "foo\n" {
 		t.Error("1st line is not \"foo\\n\":", s1)
 	}
 	if s2 := <-ch; s2 != "bar\n" {
-		t.Error("1st line is not \"bar\\n\":", s2)
+		t.Error("2nd line is not \"bar\\n\":", s2)
 	}
 	if s3 := <-ch; s3 != "baz" {
-		t.Error("1st line is not \"baz\":", s3)
+		t.Error("3rd line is not \"baz\":", s3)
 	}
 	if s4, ok := <-ch; ok != false {
-		t.Error("mode data:", s4)
+		t.Error("more data:", s4)
 	}
 }
