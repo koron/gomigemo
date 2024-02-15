@@ -56,5 +56,5 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	queryLoop(cli.NewConsole(), dict)
+	queryLoop(cli.NewConsole(), migemo.MultiClauses(dict))
 }
