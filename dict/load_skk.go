@@ -3,7 +3,7 @@ package dict
 import (
 	"io"
 
-	"github.com/koron/go-skkdict"
+	"github.com/koron-go/skkdict"
 )
 
 func addDictEntry(d *Dict, entry *skkdict.Entry) {
