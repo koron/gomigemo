@@ -1,9 +1,14 @@
 # Go/Migemo module
 
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/koron/gomigemo)](https://pkg.go.dev/github.com/koron/gomigemo)
-[![GoDoc](https://godoc.org/github.com/koron/gomigemo?status.svg)](https://godoc.org/github.com/koron/gomigemo)
 [![Actions/Go](https://github.com/koron/gomigemo/workflows/Go/badge.svg)](https://github.com/koron/gomigemo/actions?query=workflow%3AGo)
 [![Go Report Card](https://goreportcard.com/badge/github.com/koron/gomigemo)](https://goreportcard.com/report/github.com/koron/gomigemo)
+
+## Install and Update
+
+```console
+$ go get github.com/koron/gomigemo@latest
+```
 
 ## Usage
 

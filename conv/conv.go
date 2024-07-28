@@ -52,7 +52,6 @@ func (c *Converter) convert2(s string, proc resultProc) (string, error) {
 	for {
 		ch, _, err := r.ReadRune()
 		if err == io.EOF {
-			err = nil
 			break
 		} else if err != nil {
 			return "", err
