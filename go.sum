@@ -1,4 +1,6 @@
+github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
+github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
+github.com/koron-go/skkdict v1.0.0 h1:N8U7nFJt6ddKt52i1FoG5ukzjHgqlHqtscjK8UcmUCM=
+github.com/koron-go/skkdict v1.0.0/go.mod h1:Pd4MKJybKeA6yzuUNfXqV5+8SBSb3PEvowZ3orQfC4M=
 github.com/koron/gelatin v0.0.0-20160729020448-88d6a03ce765 h1:/k2Hth0PQq47SNc2pvOnwEQbjtu7HgtQu8TFXKhABKE=
 github.com/koron/gelatin v0.0.0-20160729020448-88d6a03ce765/go.mod h1:TJD1ti844npsMLPGgPPLa1Ozaz0W36N9EL6dQmTZ0kU=
-github.com/koron/go-skkdict v0.0.0-20160727125427-1bfa372d61d2 h1:ibW6FKhStt/gAMEndugP/3kNb/Dm+eWEx9rjCMN37A8=
-github.com/koron/go-skkdict v0.0.0-20160727125427-1bfa372d61d2/go.mod h1:RHH1ylFPxnWBxAbpUZraJ4iCu4GO0jvbvx0VIDawT8w=
