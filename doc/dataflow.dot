@@ -1,0 +1,18 @@
+// C/Migemo's dataflow
+//
+// C/Migemoはこうなっていましたよ、というだけで理想ではない。
+digraph dataflow {
+    query -> lower -> compose;
+    lower -> dict;
+    query -> narrow2wide -> compose;
+    query -> wide2narrow -> compose;
+
+    query -> roma2hira -> dict;
+    roma2hira -> compose;
+    roma2hira -> hira2kata -> compose;
+
+    hira2kata -> wide2narrow;
+    hira2kata -> dict;
+
+    dict -> compose;
+}

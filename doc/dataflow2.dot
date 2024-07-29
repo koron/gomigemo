@@ -1,0 +1,23 @@
+// Gomigemo's dataflow
+//
+// Migemoのあるべき姿
+digraph dataflow {
+    query -> dict [ label="英字" ];
+    query -> roma2hira;
+    query -> narrow2wide;
+    query -> compose;
+
+    roma2hira -> dict [ label="平仮名" ];
+    roma2hira -> compose;
+    roma2hira -> hira2kata;
+
+    hira2kata -> dict [ label="片仮名" ];
+    hira2kata -> compose;
+    hira2kata -> wide2narrow;
+
+    wide2narrow -> compose [ label="半角カナ" ];
+
+    narrow2wide -> compose [ label="全角英字" ];
+
+    dict -> compose;
+}
