@@ -29,14 +29,15 @@ jobs:
       run: |
         found=0
         echo "targets<<__END__" >> $GITHUB_OUTPUT
-        root=$(go list -f '{{.ImportPath}}' .)
-        for path in $(go list -f '{{if (eq .Name "main")}}{{.ImportPath}}{{end}}' ./... ) ; do
-          found=1
-          dir=".${path#${root}}"
-          name=$(basename "$path")
+        go list -f '{{if (eq .Name "main")}}{{.ImportPath}} .{{slice .ImportPath (len .Module.Path)}}{{end}}' ./... | while IFS= read -r line ; do
+          read -a e <<< "$line"
+          path="${e[0]}"
+          dir="${e[1]}"
+          name=$(basename $path)
           if [ -f "$dir/.norelease" ] ; then
             echo -e "Skipped $name\t($dir), due to $dir/.norelease found"
           else
+            found=1
             echo "$name $dir $path" >> $GITHUB_OUTPUT
             echo -e "Added   $name\t($dir) to the release"
           fi
@@ -184,4 +185,4 @@ jobs:
         append_body: true
 
 # based on: github.com/koron-go/_skeleton/.github/workflows/release.yml
-# $Hash:d99d1b5435452a2fc3ff949711abe87b69e047855802ec59910d7132$
+# $Hash:5ece2a99f0f728149414355f0c4ab509e6a032f4d72dc0a2bbc40247$
