@@ -12,15 +12,17 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     strategy:
+      fail-fast: false
       matrix:
         os:
         - ubuntu-latest
         - ubuntu-24.04-arm
         - macos-latest
         - windows-latest
+
     steps:
 
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - uses: actions/setup-go@v6
       with:
@@ -41,4 +43,4 @@ jobs:
         done
 
 # based on: github.com/koron-go/_skeleton/.github/workflows/go.yml
-# $Hash:9c8a3b994481420b53acfa5fc528096004ca3db524f1d95554dcbad1$
+# $Hash:5c453adb7ee86afc50e6bbb626326f86d1e9b7ebc92cc12d74227105$

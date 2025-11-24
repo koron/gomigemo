@@ -19,7 +19,7 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - uses: actions/setup-go@v6
       with:
         go-version: ${{ env.GO_VERSION }}
@@ -57,6 +57,7 @@ jobs:
       RELEASE_TARGETS: ${{needs.check.outputs.targets}}
 
     strategy:
+      fail-fast: false
       matrix:
         os:
         - ubuntu-latest
@@ -78,7 +79,7 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - uses: actions/setup-go@v6
       with:
         go-version: ${{ env.GO_VERSION }}
@@ -149,7 +150,7 @@ jobs:
         ls -laFR _build
 
     - name: Artifact upload
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: ${{ env.GOOS }}_${{ env.GOARCH }}
         path: _build/${{ env.PKGNAME }}${{ env.PKGEXT }}
@@ -161,19 +162,19 @@ jobs:
     needs:
     - build
     steps:
-    - uses: actions/download-artifact@v5
+    - uses: actions/download-artifact@v6
       with: { name: darwin_amd64 }
-    - uses: actions/download-artifact@v5
+    - uses: actions/download-artifact@v6
       with: { name: darwin_arm64 }
-    - uses: actions/download-artifact@v5
+    - uses: actions/download-artifact@v6
       with: { name: linux_amd64 }
-    - uses: actions/download-artifact@v5
+    - uses: actions/download-artifact@v6
       with: { name: linux_arm64 }
-    - uses: actions/download-artifact@v5
+    - uses: actions/download-artifact@v6
       with: { name: windows_amd64 }
     - run: ls -lafR
     - name: Release
-      uses: softprops/action-gh-release@6cbd405e2c4e67a21c47fa9e383d020e4e28b836 # v2.3.3
+      uses: softprops/action-gh-release@5be0e66d93ac7ed76da52eca8bb058f665c3a5fe # v2.4.2
       with:
         draft: true
         prerelease: ${{ contains(github.ref_name, '-alpha.') || contains(github.ref_name, '-beta.') }}
@@ -185,4 +186,4 @@ jobs:
         append_body: true
 
 # based on: github.com/koron-go/_skeleton/.github/workflows/release.yml
-# $Hash:5ece2a99f0f728149414355f0c4ab509e6a032f4d72dc0a2bbc40247$
+# $Hash:a9354833cf3f815f347887d0b11c95c61a362262f9715036ff827975$
